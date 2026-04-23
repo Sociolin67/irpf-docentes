@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRPF Docentes CARM · Subida 0,5%</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, serif;
+    background: #0f172a;
+    min-height: 100vh;
+    padding: 1.5rem;
+    color: #f8fafc;
+  }
+  .titulo-seccion {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .titulo-seccion h2 {
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #64748b;
+    font-weight: normal;
+  }
+  .situaciones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .tarjeta {
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid #334155;
+    background: #1e293b;
+  }
+  .tarjeta-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .tarjeta-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .tarjeta-icono { font-size: 1.1rem; flex-shrink: 0; }
+  .tarjeta-titulo {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: #f1f5f9;
+  }
+  .tarjeta-descripcion {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: 0.2rem;
+  }
+  .tarjeta-flecha {
+    font-size: 1.1rem;
+    color: #475569;
+    flex-shrink: 0;
+  }
+  .tarjeta-contenido {
+    display: none;
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+  .tarjeta-contenido.abierto { display: block; }
+  .tarjeta-accion {
+    background: white;
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .tarjeta-accion-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 0.4rem;
+  }
+  .tarjeta-accion-texto {
+    font-size: 0.88rem;
+    color: #1e293b;
+    line-height: 1.5;
+  }
+  .tarjeta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 20px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+  .badge-alerta { background: #fef3c7; color: #92400e; }
+  .badge-ok { background: #dcfce7; color: #166534; }
+  .nota-box {
+    background: #1e293b;
+    border: 1px solid #475569;
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .nota-texto {
+    font-size: 0.85rem;
+    color: #fbbf24;
+    line-height: 1.5;
+  }
+  .plazo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #dc2626;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.05em;
+  }
+  .pie {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #475569;
+    letter-spacing: 0.1em;
+  }
+</style>
+</head>
+<body>
+
+<div class="titulo-seccion">
+  <h2>¿Cuál es tu situación?</h2>
+</div>
+
+<div class="situaciones">
+
+  <div class="tarjeta" id="t1" onclick="toggle(1)" data-color="#22c55e" data-bg="#f0fdf4" data-border="#86efac">
+    <div class="tarjeta-header">
+      <div class="tarjeta-header-left">
+        <span class="tarjeta-icono">🟢</span>
+        <div>
+          <div class="tarjeta-titulo">Situación 1: No has presentado nada</div>
+          <div class="tarjeta-descripcion">Aún no has hecho ni la ordinaria de 2025 ni la complementaria de 2024</div>
+        </div>
+      </div>
+      <span class="tarjeta-flecha" id="f1">▼</span>
+    </div>
+    <div class="tarjeta-contenido" id="c1" style="border-top: 1px solid #86efac;">
+      <div class="tarjeta-accion">
+        <div class="tarjeta-accion-label">Qué debes hacer</div>
+        <div class="tarjeta-accion-texto">No presentes complementaria de 2024. Incluye los atrasos en tu declaración ordinaria de 2025 una vez corregido el modelo 190.</div>
+      </div>
+      <span class="tarjeta-badge badge-ok">✅ Sin trámite adicional</span>
+    </div>
+  </div>
+
+  <div class="tarjeta" id="t2" onclick="toggle(2)" data-color="#f59e0b" data-bg="#fffbeb" data-border="#fcd34d">
+    <div class="tarjeta-header">
+      <div class="tarjeta-header-left">
+        <span class="tarjeta-icono">🟡</span>
+        <div>
+          <div class="tarjeta-titulo">Situación 2: Presentaste complementaria de 2024 y pagaste</div>
+          <div class="tarjeta-descripcion">Hiciste la complementaria, te salió a pagar y ya ingresaste el dinero</div>
+        </div>
+      </div>
+      <span class="tarjeta-flecha" id="f2">▼</span>
+    </div>
+    <div class="tarjeta-contenido" id="c2" style="border-top: 1px solid #fcd34d;">
+      <div class="tarjeta-accion">
+        <div class="tarjeta-accion-label">Qué debes hacer</div>
+        <div class="tarjeta-accion-texto">Rectifica la complementaria de 2024 eliminando los atrasos. La AEAT te devolverá lo ingresado indebidamente. Luego incluye esas cantidades en tu declaración de 2025.</div>
+      </div>
+      <span class="tarjeta-badge badge-alerta">⚠️ Devolución de lo pagado de más</span>
+    </div>
+  </div>
+
+  <div class="tarjeta" id="t3" onclick="toggle(3)" data-color="#ef4444" data-bg="#fef2f2" data-border="#fca5a5">
+    <div class="tarjeta-header">
+      <div class="tarjeta-header-left">
+        <span class="tarjeta-icono">🔴</span>
+        <div>
+          <div class="tarjeta-titulo">Situación 3: Presentaste complementaria de 2024 y ya te devolvieron</div>
+          <div class="tarjeta-descripcion">Hiciste la complementaria, te salió a devolver y Hacienda ya te ingresó el dinero</div>
+        </div>
+      </div>
+      <span class="tarjeta-flecha" id="f3">▼</span>
+    </div>
+    <div class="tarjeta-contenido" id="c3" style="border-top: 1px solid #fca5a5;">
+      <div class="tarjeta-accion">
+        <div class="tarjeta-accion-label">Qué debes hacer</div>
+        <div class="tarjeta-accion-texto">Debes rectificar la complementaria de 2024. Tendrás que devolver a Hacienda la parte correspondiente a los atrasos. Luego declara esas cantidades en tu renta de 2025.</div>
+      </div>
+      <span class="tarjeta-badge badge-alerta">⚠️ Hay que devolver parte de lo recibido</span>
+    </div>
+  </div>
+
+  <div class="tarjeta" id="t4" onclick="toggle(4)" data-color="#8b5cf6" data-bg="#f5f3ff" data-border="#c4b5fd">
+    <div class="tarjeta-header">
+      <div class="tarjeta-header-left">
+        <span class="tarjeta-icono">🟣</span>
+        <div>
+          <div class="tarjeta-titulo">Situación 4: Presentaste complementaria pero aún no cobraste devolución</div>
+          <div class="tarjeta-descripcion">Hiciste la complementaria, te salió a devolver pero Hacienda todavía no ha procesado el pago</div>
+        </div>
+      </div>
+      <span class="tarjeta-flecha" id="f4">▼</span>
+    </div>
+    <div class="tarjeta-contenido" id="c4" style="border-top: 1px solid #c4b5fd;">
+      <div class="tarjeta-accion">
+        <div class="tarjeta-accion-label">Qué debes hacer</div>
+        <div class="tarjeta-accion-texto">Rectifica la complementaria cuanto antes, antes de que Hacienda procese la devolución. Así evitas tener que devolver el dinero posteriormente.</div>
+      </div>
+      <span class="tarjeta-badge badge-alerta">⚠️ Actúa con urgencia</span>
+    </div>
+  </div>
+
+  <div class="tarjeta" id="t5" onclick="toggle(5)" data-color="#0ea5e9" data-bg="#f0f9ff" data-border="#7dd3fc">
+    <div class="tarjeta-header">
+      <div class="tarjeta-header-left">
+        <span class="tarjeta-icono">🔵</span>
+        <div>
+          <div class="tarjeta-titulo">Situación 5: Ya incluiste los atrasos en tu declaración de 2025</div>
+          <div class="tarjeta-descripcion">Optaste por declarar esas cantidades directamente en tu renta de 2025 sin hacer complementaria</div>
+        </div>
+      </div>
+      <span class="tarjeta-flecha" id="f5">▼</span>
+    </div>
+    <div class="tarjeta-contenido" id="c5" style="border-top: 1px solid #7dd3fc;">
+      <div class="tarjeta-accion">
+        <div class="tarjeta-accion-label">Qué debes hacer</div>
+        <div class="tarjeta-accion-texto">Si el modelo 190 se corrige en ese sentido, tu declaración de 2025 será correcta. No tienes que hacer nada más.</div>
+      </div>
+      <span class="tarjeta-badge badge-ok">✅ Sin trámite adicional</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="nota-box">
+  <p class="nota-texto">⚠️ Ninguna de estas situaciones queda resuelta definitivamente hasta que la CARM presente el modelo 190 sustitutivo corregido.</p>
+  <span class="plazo-badge">📅 Plazo límite: 30 de junio de 2026</span>
+</div>
+
+<div class="pie">Servicio de Personal Docente · Consejería de Educación y FP · CARM</div>
+
+<script>
+  let abierta = null;
+  function toggle(id) {
+    const contenido = document.getElementById('c' + id);
+    const flecha = document.getElementById('f' + id);
+    const tarjeta = document.getElementById('t' + id);
+    const color = tarjeta.dataset.color;
+    const bg = tarjeta.dataset.bg;
+    const border = tarjeta.dataset.border;
+    const titulo = tarjeta.querySelector('.tarjeta-titulo');
+    const desc = tarjeta.querySelector('.tarjeta-descripcion');
+
+    if (abierta && abierta !== id) {
+      const prevContenido = document.getElementById('c' + abierta);
+      const prevFlecha = document.getElementById('f' + abierta);
+      const prevTarjeta = document.getElementById('t' + abierta);
+      const prevTitulo = prevTarjeta.querySelector('.tarjeta-titulo');
+      const prevDesc = prevTarjeta.querySelector('.tarjeta-descripcion');
+      prevContenido.classList.remove('abierto');
+      prevFlecha.textContent = '▼';
+      prevFlecha.style.color = '#475569';
+      prevTarjeta.style.background = '#1e293b';
+      prevTarjeta.style.borderColor = '#334155';
+      prevTitulo.style.color = '#f1f5f9';
+      prevDesc.style.color = '#94a3b8';
+    }
+
+    if (abierta === id) {
+      contenido.classList.remove('abierto');
+      flecha.textContent = '▼';
+      flecha.style.color = '#475569';
+      tarjeta.style.background = '#1e293b';
+      tarjeta.style.borderColor = '#334155';
+      titulo.style.color = '#f1f5f9';
+      desc.style.color = '#94a3b8';
+      abierta = null;
+    } else {
+      contenido.classList.add('abierto');
+      flecha.textContent = '▲';
+      flecha.style.color = color;
+      tarjeta.style.background = bg;
+      tarjeta.style.borderColor = border;
+      titulo.style.color = color;
+      desc.style.color = '#475569';
+      abierta = id;
+    }
+  }
+</script>
+</body>
+</html>
