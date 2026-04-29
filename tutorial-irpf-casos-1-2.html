@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutorial IRPF 2025 · Docentes CARM</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+  :root {
+    --azul: #003B7A;
+    --azul-medio: #0057B3;
+    --azul-claro: #E8F0FA;
+    --verde: #1A7A4A;
+    --verde-claro: #E6F4ED;
+    --naranja: #C45000;
+    --naranja-claro: #FDF0E6;
+    --gris-oscuro: #1A1A2E;
+    --gris-medio: #4A4A6A;
+    --gris-claro: #F5F6FA;
+    --borde: #D0D8E8;
+    --blanco: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--gris-claro);
+    color: var(--gris-oscuro);
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* CABECERA INSTITUCIONAL */
+  .cabecera {
+    background: var(--azul);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-bottom: 4px solid var(--azul-medio);
+  }
+
+  .cabecera-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .escudo {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .cabecera-texto {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    line-height: 1.4;
+  }
+
+  .cabecera-texto strong {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    opacity: 1;
+  }
+
+  /* AVISO IMPORTANTE */
+  .aviso {
+    background: var(--naranja-claro);
+    border-left: 4px solid var(--naranja);
+    max-width: 800px;
+    margin: 1.5rem auto;
+    padding: 1rem 1.25rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+    color: var(--naranja);
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .aviso-icono { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+  /* CONTENEDOR PRINCIPAL */
+  .contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+  }
+
+  /* TÍTULO PÁGINA */
+  .titulo-pagina {
+    text-align: center;
+    margin: 2rem 0 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--borde);
+  }
+
+  .titulo-pagina h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 600;
+    color: var(--azul);
+    margin-bottom: 0.5rem;
+  }
+
+  .titulo-pagina p {
+    font-size: 0.9rem;
+    color: var(--gris-medio);
+    font-weight: 300;
+  }
+
+  /* SELECTOR DE CASOS */
+  .selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .selector-btn {
+    background: white;
+    border: 2px solid var(--borde);
+    border-radius: 8px;
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-family: inherit;
+  }
+
+  .selector-btn:hover {
+    border-color: var(--azul-medio);
+    background: var(--azul-claro);
+  }
+
+  .selector-btn.activo {
+    border-color: var(--azul);
+    background: var(--azul-claro);
+  }
+
+  .selector-num {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--azul-medio);
+    margin-bottom: 0.4rem;
+  }
+
+  .selector-titulo {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--gris-oscuro);
+    line-height: 1.3;
+  }
+
+  /* PANEL DE TUTORIAL */
+  .panel {
+    display: none;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid var(--borde);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .panel.visible { display: block; }
+
+  .panel-cabecera {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--borde);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .panel-icono {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .panel-icono-verde { background: var(--verde-claro); }
+  .panel-icono-naranja { background: var(--naranja-claro); }
+
+  .panel-titulo {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--azul);
+  }
+
+  .panel-desc {
+    font-size: 0.82rem;
+    color: var(--gris-medio);
+    margin-top: 0.2rem;
+  }
+
+  /* PASOS */
+  .pasos {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .paso {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .paso-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--azul);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .paso-contenido {
+    flex: 1;
+    padding-top: 0.3rem;
+  }
+
+  .paso-titulo {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--gris-oscuro);
+    margin-bottom: 0.25rem;
+  }
+
+  .paso-desc {
+    font-size: 0.85rem;
+    color: var(--gris-medio);
+    line-height: 1.5;
+  }
+
+  .paso-enlace {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    background: var(--azul);
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  .paso-enlace:hover { background: var(--azul-medio); }
+
+  .paso-nota {
+    margin-top: 0.5rem;
+    background: var(--azul-claro);
+    border-left: 3px solid var(--azul-medio);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.82rem;
+    color: var(--azul);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* SEPARADOR ENTRE PASOS */
+  .paso-linea {
+    width: 1px;
+    background: var(--borde);
+    margin-left: 15px;
+    height: 12px;
+  }
+
+  /* RESULTADO ESPERADO */
+  .resultado {
+    margin: 0 1.5rem 1.5rem;
+    background: var(--verde-claro);
+    border: 1px solid #9ED4B8;
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .resultado-icono { font-size: 1.1rem; flex-shrink: 0; }
+
+  .resultado-texto {
+    font-size: 0.85rem;
+    color: var(--verde);
+    line-height: 1.5;
+  }
+
+  .resultado-texto strong { display: block; margin-bottom: 0.2rem; }
+
+  /* INFO ADICIONAL */
+  .info-adicional {
+    background: var(--gris-claro);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--gris-medio);
+  }
+
+  .info-adicional strong {
+    color: var(--gris-oscuro);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .info-adicional ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .info-adicional li::before {
+    content: "→ ";
+    color: var(--azul-medio);
+    font-weight: 600;
+  }
+
+  /* PIE */
+  .pie {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #9090A0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--borde);
+    letter-spacing: 0.05em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .selector { grid-template-columns: 1fr; }
+    .cabecera { padding: 1rem; }
+    .contenedor { padding: 0 1rem 2rem; }
+  }
+
+  @media (max-width: 900px) and (min-width: 601px) {
+    .selector { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media print {
+    .selector-btn { border: 1px solid #ccc; }
+    .panel { display: block !important; page-break-inside: avoid; }
+    .cabecera { background: white; color: black; border-bottom: 2px solid black; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CABECERA -->
+<div class="cabecera">
+  <div class="cabecera-inner">
+    <div class="escudo">🏛️</div>
+    <div class="cabecera-texto">
+      Región de Murcia · Consejería de Educación y Formación Profesional
+      <strong>Dirección General de Recursos Humanos, Planificación Educativa e Innovación</strong>
+    </div>
+  </div>
+</div>
+
+<div class="contenedor">
+
+  <!-- AVISO -->
+  <div class="aviso">
+    <span class="aviso-icono">⚠️</span>
+    <span>Antes de realizar cualquier trámite, espere a recibir la comunicación oficial indicando que el nuevo certificado de retenciones e ingresos del ejercicio 2025 ya está disponible.</span>
+  </div>
+
+  <!-- TÍTULO -->
+  <div class="titulo-pagina">
+    <h1>Guía de actuación · IRPF 2025</h1>
+    <p>Subida retributiva del 0,5% · Seleccione su situación para ver los pasos a seguir</p>
+  </div>
+
+  <!-- SELECTOR -->
+  <div class="selector">
+    <button class="selector-btn activo" onclick="mostrar(1, this)">
+      <div class="selector-num">Caso 1</div>
+      <div class="selector-titulo">No he presentado ninguna declaración todavía</div>
+    </button>
+    <button class="selector-btn" onclick="mostrar(2, this)">
+      <div class="selector-num">Caso 2</div>
+      <div class="selector-titulo">Presenté la complementaria de 2024 y debo anularla</div>
+    </button>
+    <button class="selector-btn" onclick="mostrar(3, this)">
+      <div class="selector-num">Caso 3</div>
+      <div class="selector-titulo">Presenté la ordinaria de 2025 sin incluir los importes del 0,5%</div>
+    </button>
+    <button class="selector-btn" onclick="mostrar(4, this)">
+      <div class="selector-num">Caso 4</div>
+      <div class="selector-titulo">Presenté la ordinaria de 2025 incluyendo ya el 0,5% como rendimientos de 2025</div>
+    </button>
+    <button class="selector-btn" onclick="mostrar(5, this)">
+      <div class="selector-num">Caso 5</div>
+      <div class="selector-titulo">Anteriormente no estaba obligado a declarar</div>
+    </button>
+    <button class="selector-btn" onclick="mostrar(6, this)">
+      <div class="selector-num">Caso 6</div>
+      <div class="selector-titulo">Presenté la complementaria de 2024 pero no la ordinaria de 2025</div>
+    </button>
+  </div>
+
+  <!-- PANEL CASO 1 -->
+  <div class="panel visible" id="panel1">
+    <div class="panel-cabecera">
+      <div class="panel-icono panel-icono-verde">✅</div>
+      <div>
+        <div class="panel-titulo">Caso 1 · No ha presentado ninguna declaración</div>
+        <div class="panel-desc">Es la situación más sencilla. Solo tiene que esperar al nuevo certificado y presentar su declaración ordinaria de 2025.</div>
+      </div>
+    </div>
+
+    <div class="pasos">
+
+      <div class="paso">
+        <div class="paso-num">1</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Espere a la comunicación oficial</div>
+          <div class="paso-desc">No realice ningún trámite hasta recibir la comunicación de la Consejería de Educación indicando que el nuevo certificado de retenciones e ingresos del ejercicio 2025 ya está disponible con los datos correctos.</div>
+          <div class="paso-nota">⚠️ No presente la declaración complementaria del ejercicio 2024. No es necesario.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">2</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Acceda a la sede electrónica de la AEAT</div>
+          <div class="paso-desc">Acceda con su certificado digital, DNI electrónico o Cl@ve.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es" target="_blank">🔗 Sede electrónica AEAT</a>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">3</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Compruebe su borrador de la declaración de 2025</div>
+          <div class="paso-desc">Una vez publicado el nuevo certificado, los datos actualizados aparecerán automáticamente en su borrador. Acceda al servicio de tramitación de borrador / declaración (Renta DIRECTA y Renta WEB) y verifique que los datos son correctos.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Acceder al borrador</a>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">4</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Presente su declaración ordinaria de 2025</div>
+          <div class="paso-desc">Una vez verificados los datos, presente su declaración ordinaria del ejercicio 2025. Los importes del 0,5% figurarán como rendimientos del trabajo del ejercicio 2025, no como atrasos.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="resultado">
+      <span class="resultado-icono">✅</span>
+      <div class="resultado-texto">
+        <strong>Resultado esperado</strong>
+        No necesita realizar ningún trámite adicional. Con un solo paso queda regularizada su situación fiscal.
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL CASO 2 -->
+  <div class="panel" id="panel2">
+    <div class="panel-cabecera">
+      <div class="panel-icono panel-icono-naranja">🔄</div>
+      <div>
+        <div class="panel-titulo">Caso 2 · Presentó la complementaria de 2024 y debe anularla</div>
+        <div class="panel-desc">Necesita presentar una autoliquidación rectificativa para anular la complementaria de 2024 y luego incluir esos importes en su declaración de 2025.</div>
+      </div>
+    </div>
+
+    <div class="pasos">
+
+      <div class="paso">
+        <div class="paso-num">1</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Acceda a la sede electrónica de la AEAT</div>
+          <div class="paso-desc">Acceda con su certificado digital, DNI electrónico o Cl@ve.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es" target="_blank">🔗 Sede electrónica AEAT</a>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">2</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Acceda a las gestiones de ejercicios anteriores</div>
+          <div class="paso-desc">En el menú de Gestiones IRPF, localice el apartado Ejercicios anteriores y pulse en el enlace correspondiente.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/Sede/impuestos-tasas/irpf/modelo-100-mode-declaracion-documentos/ejercicios-anteriores.html" target="_blank">🔗 Ejercicios anteriores</a>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">3</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Seleccione Ejercicio 2024</div>
+          <div class="paso-desc">Dentro de la página de ejercicios anteriores, seleccione Ejercicio 2024 y pulse en <strong>Modificación de una declaración ya presentada 2024</strong>.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">4</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Seleccione Actuar en nombre propio</div>
+          <div class="paso-desc">El sistema le pedirá que se identifique. Seleccione <strong>Actuar en nombre propio</strong> y confirme.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">5</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Pulse en Modificar declaración presentada</div>
+          <div class="paso-desc">El sistema cargará su declaración complementaria ya presentada. Pulse en <strong>Modificar declaración presentada</strong>.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">6</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Elimine los importes del 0,5%</div>
+          <div class="paso-desc">Dentro de la declaración, elimine los importes correspondientes al 0,5% que figuraban como atrasos de 2024. El resultado de la declaración debería quedar como si no hubiera presentado la complementaria.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">7</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Marque la casilla 103</div>
+          <div class="paso-desc">En el apartado <strong>Modificar declaración Renta 2024 ya presentada</strong>, marque la casilla 103 indicando que es una autoliquidación rectificativa. Como motivo seleccione la opción <strong>a) Percepción de atrasos</strong>.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">8</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Compruebe el resultado y presente</div>
+          <div class="paso-desc">Verifique que el resultado es correcto y presente la autoliquidación rectificativa. Si había ingresado una cantidad, la AEAT le devolverá la diferencia. Si había recibido una devolución mayor, deberá reintegrar la diferencia.</div>
+          <div class="paso-nota">ℹ️ Este trámite no conlleva sanción, intereses de demora ni recargo alguno.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">9</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Presente su declaración ordinaria de 2025</div>
+          <div class="paso-desc">Una vez disponible el nuevo certificado y anulada la complementaria de 2024, acceda al borrador de su declaración de 2025. Los importes del 0,5% figurarán correctamente como rendimientos de 2025. Verifique y presente.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Acceder al borrador 2025</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="resultado">
+      <span class="resultado-icono">✅</span>
+      <div class="resultado-texto">
+        <strong>Resultado esperado</strong>
+        La complementaria de 2024 queda anulada y los importes del 0,5% se declaran correctamente en su renta de 2025.
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL CASO 3 -->
+  <div class="panel" id="panel3">
+    <div class="panel-cabecera">
+      <div class="panel-icono panel-icono-naranja">📝</div>
+      <div>
+        <div class="panel-titulo">Caso 3 · Presentó la ordinaria de 2025 sin incluir los importes del 0,5%</div>
+        <div class="panel-desc">Debe modificar su declaración de 2025 para añadir los importes del 0,5% una vez disponible el nuevo certificado.</div>
+      </div>
+    </div>
+    <div class="pasos">
+
+      <div class="paso">
+        <div class="paso-num">1</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Espere al nuevo certificado</div>
+          <div class="paso-desc">Espere a recibir la comunicación oficial indicando que el nuevo certificado de retenciones e ingresos de 2025 ya está disponible con los datos correctos.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">2</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Acceda a la sede electrónica de la AEAT</div>
+          <div class="paso-desc">Acceda con su certificado digital, DNI electrónico o Cl@ve.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es" target="_blank">🔗 Sede electrónica AEAT</a>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">3</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Pulse en Modificación de una declaración ya presentada</div>
+          <div class="paso-desc">En Gestiones IRPF pulse en <strong>Modificación de una declaración ya presentada</strong> correspondiente al ejercicio 2025.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Modificar declaración 2025</a>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">4</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Añada los importes del 0,5%</div>
+          <div class="paso-desc">El sistema cargará su declaración ya presentada. Incorpore los importes del 0,5% que figuran en el nuevo certificado como rendimientos del trabajo del ejercicio 2025.</div>
+          <div class="paso-nota">ℹ️ Los datos del nuevo certificado aparecerán automáticamente en su borrador una vez publicado.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">5</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Presente la autoliquidación rectificativa</div>
+          <div class="paso-desc">Verifique el nuevo resultado y presente la autoliquidación rectificativa. Dependiendo de su tipo marginal puede que deba ingresar una pequeña diferencia o que varíe su devolución.</div>
+          <div class="paso-nota">ℹ️ Este trámite no conlleva sanción, intereses de demora ni recargo alguno.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="resultado">
+      <span class="resultado-icono">✅</span>
+      <div class="resultado-texto">
+        <strong>Resultado esperado</strong>
+        Su declaración de 2025 queda actualizada con los importes correctos del 0,5%.
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL CASO 4 -->
+  <div class="panel" id="panel4">
+    <div class="panel-cabecera">
+      <div class="panel-icono panel-icono-verde">🔵</div>
+      <div>
+        <div class="panel-titulo">Caso 4 · Presentó la ordinaria de 2025 incluyendo ya el 0,5% como rendimientos de 2025</div>
+        <div class="panel-desc">Solo necesita comprobar que los datos de su declaración coinciden con el nuevo certificado.</div>
+      </div>
+    </div>
+    <div class="pasos">
+
+      <div class="paso">
+        <div class="paso-num">1</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Espere al nuevo certificado</div>
+          <div class="paso-desc">Espere a recibir la comunicación oficial indicando que el nuevo certificado de retenciones e ingresos de 2025 ya está disponible.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">2</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Compruebe sus datos fiscales</div>
+          <div class="paso-desc">Acceda a sus datos fiscales en la sede electrónica de la AEAT y verifique que los importes del nuevo certificado coinciden con los que declaró en su declaración de 2025.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDFPA-D182%2FSvVisDF25Net&aut=CPRE" target="_blank">🔗 Consultar datos fiscales</a>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">3</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Si los datos coinciden, no hace nada más</div>
+          <div class="paso-desc">Si los importes que declaró coinciden con los del nuevo certificado, su situación está correctamente regularizada y no necesita realizar ningún trámite adicional.</div>
+          <div class="paso-nota">ℹ️ Si detecta alguna discrepancia, contacte con spd_nominas@murciaeduca.es para recibir orientación.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="resultado">
+      <span class="resultado-icono">✅</span>
+      <div class="resultado-texto">
+        <strong>Resultado esperado</strong>
+        Si los datos coinciden, no necesita realizar ningún trámite adicional. Su declaración ya es correcta.
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL CASO 5 -->
+  <div class="panel" id="panel5">
+    <div class="panel-cabecera">
+      <div class="panel-icono panel-icono-naranja">⚠️</div>
+      <div>
+        <div class="panel-titulo">Caso 5 · Anteriormente no estaba obligado a declarar</div>
+        <div class="panel-desc">Con los nuevos datos del certificado puede que pase a estar obligado a presentar declaración. Debe comprobarlo.</div>
+      </div>
+    </div>
+    <div class="pasos">
+
+      <div class="paso">
+        <div class="paso-num">1</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Espere al nuevo certificado</div>
+          <div class="paso-desc">Espere a recibir la comunicación oficial indicando que el nuevo certificado de retenciones e ingresos de 2025 ya está disponible.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">2</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Compruebe si sigue sin estar obligado a declarar</div>
+          <div class="paso-desc">Con los importes del 0,5% incorporados a sus rendimientos de 2025, verifique si supera los límites que determinan la obligación de presentar declaración. Puede comprobarlo en el simulador de la AEAT.</div>
+          <a class="paso-enlace" href="https://www2.agenciatributaria.gob.es/wlpl/PARE-RW25/OPEN/index.zul?TACCESO=COLAB&EJER=2025" target="_blank">🔗 Simulador Renta Web</a>
+          <div class="paso-nota">⚠️ Los límites que determinan la obligación de declarar pueden verse afectados por los nuevos importes. No dé por sentado que su situación es la misma que el año anterior.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">3</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Si pasa a estar obligado, presente su declaración de 2025</div>
+          <div class="paso-desc">Si con los nuevos datos supera los límites de obligación, deberá presentar su declaración ordinaria del ejercicio 2025 antes del 30 de junio de 2026.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Presentar declaración 2025</a>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">4</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Si tiene dudas, consulte</div>
+          <div class="paso-desc">Si tiene dudas sobre si está obligado a declarar, puede contactar con la Consejería de Educación o con la AEAT para recibir orientación personalizada.</div>
+          <div class="paso-nota">ℹ️ AEAT · Información Tributaria Básica: 91 554 87 70</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="resultado">
+      <span class="resultado-icono">⚠️</span>
+      <div class="resultado-texto">
+        <strong>Resultado esperado</strong>
+        Si no supera los límites de obligación, no necesita hacer nada. Si los supera, debe presentar declaración antes del 30 de junio de 2026.
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL CASO 6 -->
+  <div class="panel" id="panel6">
+    <div class="panel-cabecera">
+      <div class="panel-icono panel-icono-naranja">🟣</div>
+      <div>
+        <div class="panel-titulo">Caso 6 · Presentó la complementaria de 2024 pero no la ordinaria de 2025</div>
+        <div class="panel-desc">Debe anular la complementaria de 2024 y presentar a continuación su declaración ordinaria de 2025 con el nuevo certificado.</div>
+      </div>
+    </div>
+    <div class="pasos">
+
+      <div class="paso">
+        <div class="paso-num">1</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Acceda a la sede electrónica de la AEAT</div>
+          <div class="paso-desc">Acceda con su certificado digital, DNI electrónico o Cl@ve.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es" target="_blank">🔗 Sede electrónica AEAT</a>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">2</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Acceda a las gestiones de ejercicios anteriores</div>
+          <div class="paso-desc">En el menú de Gestiones IRPF, localice el apartado Ejercicios anteriores y pulse en el enlace correspondiente.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/Sede/impuestos-tasas/irpf/modelo-100-mode-declaracion-documentos/ejercicios-anteriores.html" target="_blank">🔗 Ejercicios anteriores</a>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">3</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Seleccione Ejercicio 2024 y modifique la complementaria</div>
+          <div class="paso-desc">Seleccione <strong>Ejercicio 2024</strong> y pulse en <strong>Modificación de una declaración ya presentada 2024</strong>. Elimine los importes del 0,5% que figuraban como atrasos y marque la casilla 103 como autoliquidación rectificativa.</div>
+          <div class="paso-nota">ℹ️ Este trámite no conlleva sanción, intereses de demora ni recargo alguno.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">4</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Presente la autoliquidación rectificativa de 2024</div>
+          <div class="paso-desc">Verifique el resultado y presente. La complementaria de 2024 queda anulada.</div>
+        </div>
+      </div>
+
+      <div class="paso-linea"></div>
+
+      <div class="paso">
+        <div class="paso-num">5</div>
+        <div class="paso-contenido">
+          <div class="paso-titulo">Espere al nuevo certificado y presente la declaración de 2025</div>
+          <div class="paso-desc">Una vez disponible el nuevo certificado, acceda al borrador de su declaración de 2025. Los importes del 0,5% figurarán correctamente como rendimientos de 2025. Verifique y presente.</div>
+          <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Presentar declaración 2025</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="resultado">
+      <span class="resultado-icono">✅</span>
+      <div class="resultado-texto">
+        <strong>Resultado esperado</strong>
+        La complementaria de 2024 queda anulada y los importes del 0,5% se declaran correctamente en su renta de 2025.
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO ADICIONAL -->
+  <div class="info-adicional">
+    <strong>Información adicional</strong>
+    <ul>
+      <li>Plazo límite para todos los trámites: <strong>30 de junio de 2026</strong></li>
+      <li>Consultas: <strong>spd_nominas@murciaeduca.es</strong></li>
+      <li>AEAT · Información Tributaria Básica: <strong>91 554 87 70</strong></li>
+      <li>AEAT · Información, asistencia y cita: <strong>91 333 35 333</strong></li>
+    </ul>
+  </div>
+
+  <!-- PIE -->
+  <div class="pie">
+    Servicio de Personal Docente · Consejería de Educación y FP · Región de Murcia
+  </div>
+
+</div>
+
+<script>
+  function mostrar(id, btn) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('visible'));
+    document.querySelectorAll('.selector-btn').forEach(b => b.classList.remove('activo'));
+    document.getElementById('panel' + id).classList.add('visible');
+    btn.classList.add('activo');
+  }
+</script>
+
+</body>
+</html>
