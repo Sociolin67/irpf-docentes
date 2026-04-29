@@ -303,20 +303,23 @@
       </div>
     </div>
 
-    <div class="selector-interno">
-      <div class="selector-interno-label">¿Ha presentado ya la declaración de la renta del año 2025?</div>
-      <div class="selector-interno-nota">Si hizo la complementaria de 2024, es muy probable que la declaración de 2025 la presentara sin incluir el 0,5%, ya que el certificado que tenía disponible en ese momento no lo recogía. Eso es completamente normal.</div>
-      <div class="selector-interno-botones">
-        <button class="btn-variante activo-variante" id="btn2a" onclick="variante(2,'a')">
-          No, todavía no la he presentado
-          <span class="btn-variante-sub">Solo hice la complementaria de 2024</span>
-        </button>
-        <button class="btn-variante" id="btn2b" onclick="variante(2,'b')">
-          Sí, ya la presenté
-          <span class="btn-variante-sub">Hice la complementaria de 2024 y también la de 2025</span>
-        </button>
-      </div>
-    </div>
+<div class="selector-interno">
+  <div style="background: var(--azul); color: white; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+    <span style="font-size:1.2rem;">❓</span>
+    ¿Ha presentado ya la declaración de la renta del año 2025?
+  </div>
+  <div class="selector-interno-nota">Si hizo la complementaria de 2024, es muy probable que la declaración de 2025 la presentara sin incluir el 0,5%, ya que el certificado que tenía disponible en ese momento no lo recogía. Eso es completamente normal.</div>
+  <div class="selector-interno-botones">
+    <button class="btn-variante activo-variante" id="btn2a" onclick="variante(2,'a')">
+      No, todavía no la he presentado
+      <span class="btn-variante-sub">Solo hice la complementaria de 2024</span>
+    </button>
+    <button class="btn-variante" id="btn2b" onclick="variante(2,'b')">
+      Sí, ya la presenté
+      <span class="btn-variante-sub">Hice la complementaria de 2024 y también la de 2025</span>
+    </button>
+  </div>
+</div>
 
     <!-- VARIANTE 2A -->
     <div class="variante visible" id="v2a">
