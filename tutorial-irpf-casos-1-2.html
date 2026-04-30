@@ -9,7 +9,6 @@
   :root {
     --azul: #003B7A; --azul-medio: #0057B3; --azul-claro: #E8F0FA;
     --verde: #1A7A4A; --verde-claro: #E6F4ED; --verde-borde: #9ED4B8;
-    --rojo: #C0392B; --rojo-claro: #FDECEA;
     --naranja: #C45000; --naranja-claro: #FDF0E6;
     --gris-oscuro: #1A1A2E; --gris-medio: #555570; --gris-claro: #F4F5F9;
     --borde: #D4DAE8; --blanco: #FFFFFF;
@@ -28,6 +27,18 @@
   .contenedor { max-width: 760px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
 
   .aviso-certificado { background: var(--verde-claro); border: 1.5px solid var(--verde-borde); border-radius: 10px; padding: 1rem 1.25rem; display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 1.75rem; font-size: 0.95rem; color: var(--verde); }
+
+  /* CÓMO LEER EL CERTIFICADO */
+  .certificado-guia { background: var(--blanco); border: 1.5px solid var(--borde); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.75rem; box-shadow: var(--sombra); }
+  .certificado-guia-titulo { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--azul-medio); font-weight: 600; margin-bottom: 0.75rem; }
+  .certificado-guia h3 { font-size: 1rem; font-weight: 700; color: var(--gris-oscuro); margin-bottom: 0.5rem; }
+  .certificado-guia p { font-size: 0.9rem; color: var(--gris-medio); line-height: 1.6; margin-bottom: 0.75rem; }
+  .certificado-fila { background: var(--gris-claro); border: 1px solid var(--borde); border-radius: 6px; padding: 0.75rem 1rem; font-size: 0.87rem; margin-bottom: 0.5rem; }
+  .certificado-fila-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gris-medio); margin-bottom: 0.2rem; }
+  .certificado-fila-valor { font-weight: 700; color: var(--azul); font-size: 0.97rem; }
+  .certificado-fila-desc { font-size: 0.82rem; color: var(--gris-medio); margin-top: 0.2rem; }
+  .certificado-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .certificado-aviso { background: var(--naranja-claro); border-left: 3px solid var(--naranja); padding: 0.6rem 0.9rem; border-radius: 0 6px 6px 0; font-size: 0.85rem; color: var(--naranja); line-height: 1.5; }
 
   .titulo-bloque { margin-bottom: 1.75rem; }
   .titulo-bloque h1 { font-size: clamp(1.35rem, 3.5vw, 1.75rem); font-weight: 700; color: var(--azul); line-height: 1.25; margin-bottom: 0.5rem; }
@@ -83,6 +94,21 @@
   .paso-enlace { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.6rem; background: var(--azul); color: white; text-decoration: none; font-size: 0.87rem; font-weight: 600; padding: 0.45rem 1rem; border-radius: 6px; transition: background 0.18s; }
   .paso-enlace:hover { background: var(--azul-medio); }
 
+  /* CAJA CERTIFICADO DENTRO DEL PASO */
+  .paso-certificado { margin-top: 0.75rem; background: var(--azul-claro); border: 1px solid var(--azul-medio); border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.87rem; }
+  .paso-certificado-titulo { font-weight: 700; color: var(--azul); margin-bottom: 0.5rem; font-size: 0.88rem; }
+  .paso-certificado-fila { display: flex; justify-content: space-between; align-items: baseline; padding: 0.3rem 0; border-bottom: 1px dashed rgba(0,87,179,0.2); gap: 1rem; }
+  .paso-certificado-fila:last-child { border-bottom: none; }
+  .paso-certificado-concepto { color: var(--gris-medio); font-size: 0.84rem; }
+  .paso-certificado-valor { font-weight: 700; color: var(--azul); white-space: nowrap; }
+
+  /* CAJA RENTA WEB DENTRO DEL PASO */
+  .paso-rentaweb { margin-top: 0.75rem; background: #F0F4FF; border: 1px solid #B0C4E8; border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.87rem; }
+  .paso-rentaweb-titulo { font-weight: 700; color: var(--azul); margin-bottom: 0.5rem; font-size: 0.88rem; }
+  .paso-rentaweb-casilla { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0; }
+  .casilla-badge { background: var(--azul); color: white; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 4px; white-space: nowrap; }
+  .casilla-desc { color: var(--gris-medio); font-size: 0.85rem; }
+
   .nota { margin-top: 0.6rem; padding: 0.6rem 0.9rem; border-radius: 6px; font-size: 0.88rem; line-height: 1.5; display: flex; gap: 0.5rem; align-items: flex-start; }
   .nota-ok { background: var(--verde-claro); color: var(--verde); border-left: 3px solid var(--verde); }
   .nota-info { background: var(--azul-claro); color: var(--azul-medio); border-left: 3px solid var(--azul-medio); }
@@ -109,6 +135,7 @@
     .cabecera { padding: 1rem; }
     .contenedor { padding: 1.25rem 1rem 3rem; }
     .contacto-grid { grid-template-columns: 1fr; }
+    .certificado-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -126,11 +153,34 @@
 
 <div class="contenedor">
 
+  <!-- AVISO CERTIFICADO DISPONIBLE -->
   <div class="aviso-certificado">
     <span style="font-size:1.3rem;flex-shrink:0;margin-top:0.05rem;">✅</span>
     <span><strong>El nuevo certificado de retenciones e ingresos del ejercicio 2025 ya está disponible.</strong> Puede descargarlo a través del procedimiento 4276 de la Sede Electrónica de la CARM. Los datos actualizados también aparecerán en su borrador de la declaración de la renta.</span>
   </div>
 
+  <!-- CÓMO LEER EL NUEVO CERTIFICADO -->
+  <div class="certificado-guia">
+    <div class="certificado-guia-titulo">📄 Cómo leer su nuevo certificado de retenciones</div>
+    <h3>¿Qué ha cambiado respecto al certificado anterior?</h3>
+    <p>En el certificado anterior aparecía una fila de <strong>atrasos del ejercicio 2024</strong> con los importes de la subida del 0,5%. En el nuevo certificado esa fila de atrasos <strong>ya no existe</strong>. Los importes del 0,5% están ahora incluidos directamente en las retribuciones del ejercicio 2025.</p>
+    <p>En su nuevo certificado compruebe lo siguiente:</p>
+    <div class="certificado-grid">
+      <div class="certificado-fila">
+        <div class="certificado-fila-label">Apartado a buscar</div>
+        <div class="certificado-fila-valor">Retribuciones dinerarias</div>
+        <div class="certificado-fila-desc">El importe total ya incluye los importes del 0,5%</div>
+      </div>
+      <div class="certificado-fila">
+        <div class="certificado-fila-label">Lo que NO debe aparecer</div>
+        <div class="certificado-fila-valor">Atrasos ejercicio 2024</div>
+        <div class="certificado-fila-desc">Si sigue apareciendo, contacte con spd_nominas@murciaeduca.es</div>
+      </div>
+    </div>
+    <div class="certificado-aviso">⚠️ Si su nuevo certificado sigue mostrando una fila de atrasos del ejercicio 2024, no realice ningún trámite y contacte con <strong>spd_nominas@murciaeduca.es</strong></div>
+  </div>
+
+  <!-- TÍTULO -->
   <div class="titulo-bloque">
     <h1>¿Qué tengo que hacer con mi declaración de la renta?</h1>
     <p>Responda a las preguntas y le indicaremos exactamente qué pasos debe dar.</p>
@@ -222,14 +272,26 @@
                 <div class="paso-titulo">Acceda a su declaración de 2025</div>
                 <div class="paso-desc">Entre en la sede electrónica de la Agencia Tributaria con su certificado digital, DNI electrónico o Cl@ve. Pulse en <strong>Servicio tramitación de borrador / declaración</strong>.</div>
                 <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Ir a mi declaración de 2025</a>
-                <div class="nota nota-info">ℹ️ Los importes del 0,5% ya aparecen en su borrador. No tiene que introducir nada manualmente.</div>
               </div>
             </div>
             <div class="paso">
               <div class="paso-num">2</div>
               <div class="paso-body">
-                <div class="paso-titulo">Compruebe y presente</div>
-                <div class="paso-desc">Revise que los datos son correctos y presente su declaración antes del 30 de junio de 2026.</div>
+                <div class="paso-titulo">Compruebe los importes del 0,5% en su borrador</div>
+                <div class="paso-desc">En el borrador, vaya al apartado <strong>Rendimientos del trabajo</strong>. Localice a su pagador <strong>Comunidad Autónoma Región de Murcia</strong> y compruebe que el importe de la casilla <strong>003 — Retribuciones dinerarias</strong> coincide con el de su nuevo certificado.</div>
+                <div class="paso-rentaweb">
+                  <div class="paso-rentaweb-titulo">Dónde mirar en Renta Web</div>
+                  <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 003</span><span class="casilla-desc">Retribuciones dinerarias — aquí deben estar ya incluidos los importes del 0,5%</span></div>
+                  <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 016</span><span class="casilla-desc">Retenciones e ingresos a cuenta — debe coincidir con las retenciones del certificado</span></div>
+                </div>
+                <div class="nota nota-info">ℹ️ Los importes del 0,5% ya aparecen en su borrador. No tiene que introducir nada manualmente.</div>
+              </div>
+            </div>
+            <div class="paso">
+              <div class="paso-num">3</div>
+              <div class="paso-body">
+                <div class="paso-titulo">Presente su declaración</div>
+                <div class="paso-desc">Si los datos son correctos, presente su declaración antes del 30 de junio de 2026.</div>
                 <div class="nota nota-ok">✅ No necesita presentar ninguna declaración complementaria del año 2024.</div>
               </div>
             </div>
@@ -266,8 +328,13 @@
             <div class="paso">
               <div class="paso-num">2</div>
               <div class="paso-body">
-                <div class="paso-titulo">Quite los importes del 0,5% y marque la casilla 103</div>
-                <div class="paso-desc">El sistema cargará su declaración. Elimine los importes del 0,5%. Marque la casilla <strong>103</strong> y seleccione el motivo <strong>a) Percepción de atrasos</strong>. Compruebe y presente.</div>
+                <div class="paso-titulo">Quite los importes del 0,5% de la casilla 003 y marque la casilla 103</div>
+                <div class="paso-desc">El sistema cargará su declaración. En el apartado <strong>Rendimientos del trabajo</strong>, localice a su pagador <strong>Comunidad Autónoma Región de Murcia</strong> y en la <strong>casilla 003</strong> quite los importes del 0,5% que figuraban como atrasos. Después marque la casilla <strong>103</strong> y seleccione el motivo <strong>a) Percepción de atrasos</strong>. Compruebe y presente.</div>
+                <div class="paso-rentaweb">
+                  <div class="paso-rentaweb-titulo">Qué quitar en Renta Web</div>
+                  <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 003</span><span class="casilla-desc">Quite los importes del 0,5% que aparecían como atrasos de 2024</span></div>
+                  <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 103</span><span class="casilla-desc">Marque esta casilla e indique motivo a) Percepción de atrasos</span></div>
+                </div>
                 <div class="nota nota-ok">✅ Este trámite no tiene ningún coste. No hay multa, ni intereses, ni recargo.</div>
               </div>
             </div>
@@ -275,8 +342,13 @@
               <div class="paso-num">3</div>
               <div class="paso-body">
                 <div class="paso-titulo">Presente su declaración de 2025</div>
-                <div class="paso-desc">Acceda a su borrador de 2025. Los importes del 0,5% ya aparecen correctamente. Compruebe y presente.</div>
+                <div class="paso-desc">Acceda a su borrador de 2025. En la <strong>casilla 003 — Retribuciones dinerarias</strong> compruebe que el importe coincide con el del nuevo certificado. Los importes del 0,5% ya están incluidos. Compruebe y presente.</div>
                 <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Ir a mi declaración de 2025</a>
+                <div class="paso-certificado">
+                  <div class="paso-certificado-titulo">📄 Qué buscar en su nuevo certificado</div>
+                  <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Retribuciones dinerarias (incluye el 0,5%)</span><span class="paso-certificado-valor">Importe total del certificado</span></div>
+                  <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Atrasos ejercicio 2024</span><span class="paso-certificado-valor">No debe aparecer</span></div>
+                </div>
                 <div class="nota nota-ok">✅ Este trámite tampoco tiene ningún coste.</div>
               </div>
             </div>
@@ -314,9 +386,20 @@
             <div class="paso">
               <div class="paso-num">2</div>
               <div class="paso-body">
-                <div class="paso-titulo">Corrija su declaración de 2025</div>
-                <div class="paso-desc">Acceda a <strong>Modificación de una declaración ya presentada</strong> del ejercicio 2025. Añada los importes del 0,5% que aparecen en el nuevo certificado como ingresos de 2025. Presente la corrección.</div>
+                <div class="paso-titulo">Corrija su declaración de 2025 añadiendo los importes del 0,5%</div>
+                <div class="paso-desc">Acceda a <strong>Modificación de una declaración ya presentada</strong> del ejercicio 2025. En el apartado <strong>Rendimientos del trabajo</strong>, localice a su pagador <strong>Comunidad Autónoma Región de Murcia</strong> y compruebe que la <strong>casilla 003</strong> refleja el importe total del nuevo certificado, que ya incluye el 0,5%.</div>
                 <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Corregir mi declaración de 2025</a>
+                <div class="paso-rentaweb">
+                  <div class="paso-rentaweb-titulo">Dónde añadir en Renta Web</div>
+                  <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 003</span><span class="casilla-desc">Retribuciones dinerarias — debe coincidir con el importe total del nuevo certificado</span></div>
+                  <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 016</span><span class="casilla-desc">Retenciones — debe coincidir con las retenciones del nuevo certificado</span></div>
+                </div>
+                <div class="paso-certificado">
+                  <div class="paso-certificado-titulo">📄 Qué buscar en su nuevo certificado</div>
+                  <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Retribuciones dinerarias (incluye el 0,5%)</span><span class="paso-certificado-valor">Importe total del certificado</span></div>
+                  <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Retenciones practicadas</span><span class="paso-certificado-valor">Importe total de retenciones</span></div>
+                  <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Atrasos ejercicio 2024</span><span class="paso-certificado-valor">No debe aparecer</span></div>
+                </div>
                 <div class="nota nota-ok">✅ Este trámite tampoco tiene ningún coste.</div>
               </div>
             </div>
@@ -353,13 +436,30 @@
             <div class="paso">
               <div class="paso-num">2</div>
               <div class="paso-body">
-                <div class="paso-titulo">Añada los importes del 0,5% y presente</div>
-                <div class="paso-desc">El sistema cargará su declaración ya presentada. Incorpore los importes del 0,5% que aparecen en el nuevo certificado como ingresos del trabajo de 2025. Compruebe y presente.</div>
+                <div class="paso-titulo">Localice a su pagador y actualice la casilla 003</div>
+                <div class="paso-desc">En el apartado <strong>Rendimientos del trabajo</strong>, localice a su pagador <strong>Comunidad Autónoma Región de Murcia</strong>. En la <strong>casilla 003 — Retribuciones dinerarias</strong> introduzca el importe total que figura en su nuevo certificado, que ya incluye los importes del 0,5%.</div>
+                <div class="paso-certificado">
+                  <div class="paso-certificado-titulo">📄 Qué buscar en su nuevo certificado</div>
+                  <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Retribuciones dinerarias (incluye el 0,5%)</span><span class="paso-certificado-valor">→ casilla 003 de Renta Web</span></div>
+                  <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Retenciones practicadas</span><span class="paso-certificado-valor">→ casilla 016 de Renta Web</span></div>
+                </div>
+                <div class="paso-rentaweb">
+                  <div class="paso-rentaweb-titulo">Dónde introducir en Renta Web</div>
+                  <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 003</span><span class="casilla-desc">Retribuciones dinerarias — introduzca el importe total del nuevo certificado</span></div>
+                  <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 016</span><span class="casilla-desc">Retenciones — introduzca las retenciones totales del nuevo certificado</span></div>
+                </div>
                 <div class="nota nota-ok">✅ Este trámite no tiene ningún coste. No hay multa, ni intereses, ni recargo.</div>
               </div>
             </div>
+            <div class="paso">
+              <div class="paso-num">3</div>
+              <div class="paso-body">
+                <div class="paso-titulo">Compruebe el resultado y presente</div>
+                <div class="paso-desc">Revise que el resultado final es correcto y presente la corrección antes del 30 de junio de 2026.</div>
+              </div>
+            </div>
           </div>
-          <div class="resultado-resumen"><strong>En resumen</strong>Un solo trámite: corregir la declaración de 2025 añadiendo los importes del 0,5%.</div>
+          <div class="resultado-resumen"><strong>En resumen</strong>Un solo trámite: corregir la declaración de 2025 añadiendo los importes del 0,5% en la casilla 003.</div>
         </div>
       </div>
       <button class="btn-volver" onclick="reiniciar()">← Volver al inicio</button>
@@ -382,15 +482,20 @@
             <div class="paso">
               <div class="paso-num">1</div>
               <div class="paso-body">
-                <div class="paso-titulo">Compruebe sus datos fiscales</div>
-                <div class="paso-desc">Acceda a sus datos fiscales en la sede electrónica de la Agencia Tributaria y verifique que los importes del 0,5% coinciden con los del nuevo certificado.</div>
+                <div class="paso-titulo">Acceda a sus datos fiscales y compare</div>
+                <div class="paso-desc">Acceda a sus datos fiscales en la sede electrónica de la Agencia Tributaria. Compare el importe de la <strong>casilla 003 — Retribuciones dinerarias</strong> de su declaración ya presentada con el importe de <strong>Retribuciones dinerarias</strong> del nuevo certificado.</div>
                 <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDFPA-D182%2FSvVisDF25Net&aut=CPRE" target="_blank">🔗 Ver mis datos fiscales</a>
+                <div class="paso-certificado">
+                  <div class="paso-certificado-titulo">📄 Qué comparar con su nuevo certificado</div>
+                  <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Casilla 003 de su declaración</span><span class="paso-certificado-valor">= Retribuciones dinerarias del certificado</span></div>
+                  <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Casilla 016 de su declaración</span><span class="paso-certificado-valor">= Retenciones del certificado</span></div>
+                </div>
               </div>
             </div>
             <div class="paso">
               <div class="paso-num">2</div>
               <div class="paso-body">
-                <div class="paso-titulo">Si coinciden, no tiene que hacer nada más</div>
+                <div class="paso-titulo">Si los importes coinciden, no tiene que hacer nada más</div>
                 <div class="paso-desc">Su declaración ya está en orden.</div>
                 <div class="nota nota-ok">✅ No necesita realizar ningún trámite adicional.</div>
               </div>
@@ -419,15 +524,15 @@
             <div class="paso">
               <div class="paso-num">1</div>
               <div class="paso-body">
-                <div class="paso-titulo">Consulte su declaración de 2025</div>
-                <div class="paso-desc">Acceda a sus datos fiscales y compare los importes de su declaración con los del nuevo certificado de retenciones.</div>
+                <div class="paso-titulo">Compare la casilla 003 de su declaración con su nuevo certificado</div>
+                <div class="paso-desc">Acceda a sus datos fiscales. En el apartado <strong>Rendimientos del trabajo</strong>, busque el importe de la <strong>casilla 003 — Retribuciones dinerarias</strong> correspondiente al pagador <strong>Comunidad Autónoma Región de Murcia</strong> y compárelo con el importe total de <strong>Retribuciones dinerarias</strong> de su nuevo certificado.</div>
                 <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDFPA-D182%2FSvVisDF25Net&aut=CPRE" target="_blank">🔗 Ver mis datos fiscales</a>
               </div>
             </div>
             <div class="paso">
               <div class="paso-num">2</div>
               <div class="paso-body">
-                <div class="paso-titulo">Si los importes ya coinciden, no hace nada más</div>
+                <div class="paso-titulo">Si los importes coinciden, no hace nada más</div>
                 <div class="paso-desc">Su declaración ya está en orden.</div>
                 <div class="nota nota-ok">✅ No necesita realizar ningún trámite adicional.</div>
               </div>
@@ -436,14 +541,14 @@
               <div class="paso-num">3</div>
               <div class="paso-body">
                 <div class="paso-titulo">Si no coinciden, corrija su declaración de 2025</div>
-                <div class="paso-desc">Acceda a <strong>Modificación de una declaración ya presentada</strong> del ejercicio 2025 y añada los importes del 0,5%.</div>
+                <div class="paso-desc">Acceda a <strong>Modificación de una declaración ya presentada</strong> del ejercicio 2025. Actualice la <strong>casilla 003</strong> con el importe total del nuevo certificado y la <strong>casilla 016</strong> con las retenciones.</div>
                 <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Corregir mi declaración de 2025</a>
                 <div class="nota nota-ok">✅ Este trámite no tiene ningún coste.</div>
               </div>
             </div>
           </div>
           <div class="nota nota-aviso" style="margin-bottom:1rem;">⚠️ Si tiene dudas, llame a la Agencia Tributaria antes de actuar.</div>
-          <div class="resultado-resumen"><strong>En resumen</strong>Primero compruebe. Luego actúe según lo que vea. Si tiene dudas, llame a la AEAT.</div>
+          <div class="resultado-resumen"><strong>En resumen</strong>Primero compruebe comparando la casilla 003 con su certificado. Si no coincide, corrija. Si tiene dudas, llame a la AEAT.</div>
         </div>
       </div>
       <button class="btn-volver" onclick="reiniciar()">← Volver al inicio</button>
@@ -476,7 +581,7 @@
               <div class="paso-num">2</div>
               <div class="paso-body">
                 <div class="paso-titulo">Si tiene obligación, presente su declaración de 2025</div>
-                <div class="paso-desc">Si el simulador indica que sí tiene obligación, acceda a su borrador de 2025 y preséntela antes del 30 de junio de 2026. Los importes del 0,5% ya aparecerán incluidos.</div>
+                <div class="paso-desc">Si el simulador indica que sí tiene obligación, acceda a su borrador de 2025 y preséntela antes del 30 de junio de 2026. Los importes del 0,5% ya aparecerán incluidos en la <strong>casilla 003</strong>.</div>
                 <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Ir a mi declaración de 2025</a>
               </div>
             </div>
@@ -518,17 +623,15 @@
 
 <script>
   const pila = [];
-
   function siguiente(nodoActual, respuesta, nodoSig) {
     const pregTexto = document.querySelector('#' + nodoActual + ' .pregunta-texto').textContent.trim();
-    pila.push({ pregunta: pregTexto, respuesta: respuesta, nodo: nodoActual });
+    pila.push({ pregunta: pregTexto, respuesta: respuesta });
     document.getElementById(nodoActual).classList.remove('visible');
     actualizarHistorial();
     const el = document.getElementById(nodoSig);
     el.classList.add('visible');
     setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
   }
-
   function actualizarHistorial() {
     const h = document.getElementById('historial');
     h.innerHTML = '';
@@ -544,7 +647,6 @@
       h.classList.remove('visible');
     }
   }
-
   function reiniciar() {
     pila.length = 0;
     document.querySelectorAll('.nodo').forEach(n => n.classList.remove('visible'));
