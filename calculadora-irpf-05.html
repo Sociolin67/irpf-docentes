@@ -248,8 +248,8 @@ function calcular(){
   // retrib2025con05 = con el 0,5% = certificado ERRONEO
   // Con certificado erroneo: el 0.5% iba como atraso de 2024, NO en retrib 2025
   // Con certificado correcto: el 0.5% SI va en retrib 2025
-  const obligadoConErroneo=retrib2025<22000; // sin 0.5% en retrib: NO obligado
-  const obligadoConCorrecto=retrib2025con05>=22000; // con 0.5% en retrib: SI obligado
+  // Pasa a estar obligado: antes NO (retrib sin 0.5% < 22000) y ahora SI (retrib con 0.5% >= 22000)
+  const pasaAEstarObligado = (retrib2025 < 22000) && (retrib2025con05 >= 22000);
 
   // Nota sobre estimacion
   const est=b25input===0?' (base estimada a partir de las retribuciones)':'';
@@ -278,16 +278,15 @@ function calcular(){
   // CASO 4: Pasa a estar OBLIGADO a declarar
   // Antes (con erroneo): retrib2025 < 22000 -> NO obligado
   // Ahora (con correcto): retrib2025+i05 >= 22000 -> SI obligado
-  if(!obligadoConErroneo && obligadoConCorrecto){
+  if(pasaAEstarObligado){
     hdr.classList.add('alerta');cif.classList.add('alerta');
     ico.textContent='⚠️';
     tit.textContent='Pasa a estar obligado a presentar declaracion';
     sub.textContent='Con el 0,5% incluido en 2025 sus retribuciones superan los 22.000 euros';
     cif.textContent=fmt(retrib2025con05);
-    etq.textContent='retribuciones totales 2025 con el 0,5%';
-    not.textContent='Sus retribuciones correctas de 2025, incluyendo el 0,5%, superan el umbral de 22.000 euros. Esto significa que debera presentar la declaracion de la renta 2025. Le recomendamos comprobarlo con el simulador gratuito de la AEAT en sede.agenciatributaria.gob.es.'+est;
+    etq.textContent='retribuciones totales 2025 incluyendo el 0,5%';
+    not.textContent='Con el nuevo certificado sus retribuciones de 2025 superan los 22.000 euros. Le recomendamos verificarlo con el simulador de la AEAT antes de presentar su declaracion.'+est;
   }
-  // CASO 5 eliminado: nadie deja de estar obligado por este motivo
   else if(false){
     hdr.classList.add('neutro');cif.classList.add('neutro');
     ico.textContent='ℹ️';
@@ -301,31 +300,31 @@ function calcular(){
   else if(Math.abs(dif)<2){
     hdr.classList.add('neutro');cif.classList.add('neutro');
     ico.textContent='✓';
-    tit.textContent='Sin impacto economico apreciable';
-    sub.textContent='La correccion no le supone ningun coste ni beneficio adicional';
+    tit.textContent='La correccion no tiene impacto economico';
+    sub.textContent='El resultado de su declaracion no variara por esta correccion';
     cif.textContent='0,00 EUR';
     etq.textContent='diferencia estimada';
-    not.textContent='El 0,5% tributa al mismo tipo marginal en 2024 y en 2025. La correccion es obligatoria pero economicamente neutra para usted. No tiene multa, intereses ni recargo.'+est;
+    not.textContent='El 0,5% tributa al mismo tipo en 2024 y en 2025. La correccion es un tramite administrativo que no afecta al resultado de su declaracion. No conlleva multa, intereses ni recargo.'+est;
   }
   // CASO 2a: Le beneficia (tramo mas favorable en 2025)
   else if(dif>0){
     hdr.classList.add('positivo');cif.classList.add('positivo');
     ico.textContent='✓';
-    tit.textContent='La correccion le resulta ligeramente favorable';
-    sub.textContent='En 2025 el 0,5% tributa en un tramo mas favorable que en 2024';
+    tit.textContent='La correccion conlleva una pequena diferencia a su favor';
+    sub.textContent='El 0,5% tributa en un tramo ligeramente mas favorable en 2025';
     cif.textContent=fmt(dif);
-    etq.textContent='estimado a su favor';
-    not.textContent='Al trasladar el 0,5% a 2025 el resultado es ligeramente positivo. La correccion no tiene multa, intereses ni recargo.'+est;
+    etq.textContent='diferencia estimada a su favor';
+    not.textContent='Al incluir el 0,5% en su declaracion de 2025 el resultado es marginalmente mejor que en 2024. La correccion no tiene multa, intereses ni recargo.'+est;
   }
   // CASO 2b: Pequena diferencia (tramo superior en 2025)
   else {
     hdr.classList.add('aviso');cif.classList.add('aviso');
     ico.textContent='→';
-    tit.textContent='Pequeña diferencia a tener en cuenta';
-    sub.textContent='En 2025 el 0,5% tributa en un tramo ligeramente superior al de 2024';
+    tit.textContent='La correccion conlleva una pequena diferencia a ingresar';
+    sub.textContent='El 0,5% tributa en un tramo ligeramente superior en 2025 respecto a 2024';
     cif.textContent=fmt(Math.abs(dif));
-    etq.textContent='diferencia estimada';
-    not.textContent='La diferencia se debe al cambio de tramo marginal entre ejercicios. La correccion es obligatoria pero no tiene multa, intereses ni recargo. El calculo exacto lo realizara Renta Web automaticamente.'+est;
+    etq.textContent='diferencia estimada a ingresar en su declaracion de 2025';
+    not.textContent='Esta pequena diferencia se debe al cambio de tramo entre ejercicios. Renta Web lo calculara automaticamente al presentar su declaracion corregida. No conlleva multa, intereses ni recargo.'+est;
   }
 
   document.getElementById('resultado').classList.add('visible');
