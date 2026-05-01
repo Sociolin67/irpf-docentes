@@ -84,61 +84,61 @@
   <div class="cabecera-inner">
     <div class="escudo">🏛️</div>
     <div class="cabecera-org">
-      Region de Murcia · Consejeria de Educacion y Formacion Profesional
-      <strong>Direccion General de Recursos Humanos, Planificacion Educativa e Innovacion</strong>
+      Region de Murcia · Consejeria de Educación y Formación Profesional
+      <strong>Dirección General de Recursos Humanos, Planificación Educativa e Innovación</strong>
     </div>
   </div>
 </div>
 <div class="contenedor">
   <div class="titulo-bloque">
     <h1>Calculadora IRPF · Impacto de la correccion del 0,5%</h1>
-    <p>Compruebe si la correccion de su declaracion le afecta economicamente: si cambia de tramo, si notara alguna diferencia o si tiene obligacion de presentar declaracion.</p>
+    <p>Compruebe si la correccion de su declaración le afecta economicamente: si cambia de tramo, si notara alguna diferencia o si tiene obligación de presentar declaración.</p>
   </div>
   <div class="aviso">
-    ℹ️ <strong>Estimacion orientativa.</strong> Necesita tener a mano su certificado de retenciones de 2025 y la casilla 0505 de su declaracion de 2024. El resultado no sustituye a la declaracion oficial en Renta Web.
+    ℹ️ <strong>Estimacion orientativa.</strong> Necesita tener a mano su certificado de retenciones de 2025 y la casilla 0505 de su declaración de 2024. El resultado no sustituye a la declaración oficial en Renta Web.
   </div>
 
   <!-- SECCIÓN 1: DATOS DEL ATRASO -->
   <div class="seccion">
     <div class="seccion-titulo">Importe del 0,5%</div>
     <div class="seccion-subtitulo">
-      Localice en su <strong>primer certificado de retenciones de 2025</strong> — el que recibi&oacute; antes del nuevo y que incluia el 0,5% como atraso del ejercicio 2024 — el apartado <strong>&quot;Rendimientos satisfechos en ejercicios anteriores (atrasos)&quot;</strong>, fila <strong>Ejercicio de Devengo 2024</strong>, e introduzca los siguientes datos:
+      Localice en su <strong>primer certificado de retenciones de 2025</strong> — el que recibi&oacute; antes del nuevo y que incluía el 0,5% como atraso del ejercicio 2024 — el apartado <strong>&quot;Rendimientos satisfechos en ejercicios anteriores (atrasos)&quot;</strong>, fila <strong>Ejercicio de Devengo 2024</strong>, e introduzca los siguientes datos:
     </div>
     <div class="campo-grid">
       <div class="campo">
-        <label>Importe integro satisfecho</label>
-        <input type="number" id="importe05" placeholder="Ej: 240.98" min="0" step="0.01">
+        <label>Importe íntegro satisfecho</label>
+        <input type="number" id="importe05" placeholder="Ej: 240,98" min="0" step="0.01">
       </div>
       <div class="campo">
         <label>Retenciones practicadas</label>
-        <input type="number" id="ret05" placeholder="Ej: 36.15" min="0" step="0.01">
+        <input type="number" id="ret05" placeholder="Ej: 36,15" min="0" step="0.01">
       </div>
     </div>
   </div>
 
   <!-- SECCIÓN 2: DATOS 2024 -->
   <div class="seccion">
-    <div class="seccion-titulo">Datos de su declaracion de la renta 2024</div>
+    <div class="seccion-titulo">Datos de su declaración de la renta 2024</div>
     <div class="seccion-subtitulo">Para calcular el tramo en el que tributo el 0,5% en la complementaria de 2024</div>
     <div class="campo">
-      <label>Base liquidable general <span class="ref">(casilla 0505 de su declaracion de 2024 ya presentada)</span></label>
-      <input type="number" id="base2024" placeholder="Ej: 45128.52" min="0" step="0.01">
+      <label>Base liquidable general <span class="ref">(casilla 0505 de su declaración de 2024 ya presentada)</span></label>
+      <input type="number" id="base2024" placeholder="Ej: 45.128,52" min="0" step="0.01">
     </div>
   </div>
 
   <!-- SECCIÓN 3: DATOS 2025 -->
   <div class="seccion">
-    <div class="seccion-titulo">Datos de su declaracion de la renta 2025</div>
-    <div class="seccion-subtitulo">Para calcular el tramo en el que tributara el 0,5% en 2025 y comprobar la obligacion de declarar</div>
+    <div class="seccion-titulo">Datos de su declaración de la renta 2025</div>
+    <div class="seccion-subtitulo">Para calcular si cambia de tramo respecto a 2024 y cómo le afectaría económicamente</div>
     <div class="campo">
-      <label>Retribuciones dinerarias totales 2025 <span class="ref">(casilla 003 de su certificado de 2025, sin el 0,5%)</span></label>
-      <input type="number" id="retrib2025" placeholder="Ej: 50988.96" min="0" step="0.01">
-      <div class="hint">Figura en la parte superior de su certificado de retenciones de 2025, en &quot;Retribuciones NO derivadas de incapacidad laboral — Dinerarias&quot;.</div>
+      <label>Retribuciones dinerarias totales 2025 <span class="ref">(casilla 003 del nuevo certificado correcto de 2025)</span></label>
+      <input type="number" id="retrib2025" placeholder="Ej: 50.988,96" min="0" step="0.01">
+      <div class="hint">Figura en la parte superior del nuevo certificado correcto de 2025, en &quot;Retribuciones NO derivadas de incapacidad laboral — Dinerarias&quot;. Este importe ya incluye el 0,5% integrado como rendimiento de 2025.</div>
     </div>
     <div class="campo">
-      <label>Base liquidable general 2025 <span class="ref">(casilla 0505 de su borrador de 2025, sin el 0,5%)</span></label>
-      <input type="number" id="base2025" placeholder="Ej: 46236.20" min="0" step="0.01">
-      <div class="hint">Si no dispone de ella, dejela en blanco y la estimaremos a partir de sus retribuciones.</div>
+      <label>Base liquidable general 2025 <span class="ref">(casilla 0505 de su borrador de 2025)</span></label>
+      <input type="number" id="base2025" placeholder="Ej: 46.236,20" min="0" step="0.01">
+      <div class="hint">La encontrará en su borrador de 2025, aunque se generara con el certificado erróneo.</div>
     </div>
   </div>
 
@@ -160,7 +160,7 @@
           <div class="etiqueta" id="cifra-etiqueta"></div>
         </div>
         <div class="desglose">
-          <div class="desglose-titulo">Desglose del calculo</div>
+          <div class="desglose-titulo">Desglose del cálculo</div>
           <div class="desglose-fila"><span class="desglose-concepto">Importe del 0,5%</span><span class="desglose-valor" id="d-importe"></span></div>
           <div class="desglose-fila"><span class="desglose-concepto">Retenciones ya practicadas</span><span class="desglose-valor" id="d-ret"></span></div>
           <div class="desglose-fila"><span class="desglose-concepto">Base liquidable 2024</span><span class="desglose-valor" id="d-base2024"></span></div>
@@ -172,15 +172,15 @@
           <div class="desglose-fila"><span class="desglose-concepto">Diferencia estimada</span><span class="desglose-valor" id="d-diferencia"></span></div>
         </div>
         <div class="nota-resultado" id="nota-resultado"></div>
-        <button class="btn-reiniciar" onclick="reiniciar()">Hacer otro calculo</button>
+        <button class="btn-reiniciar" onclick="reiniciar()">Hacer otro cálculo</button>
       </div>
     </div>
   </div>
 </div>
 <div class="pie">
   Herramienta de uso orientativo · No constituye asesoramiento fiscal<br>
-  Direccion General de Recursos Humanos, Planificacion Educativa e Innovacion · CARM 2026<br>
-  Todos los calculos se realizan en su dispositivo. Ningun dato es enviado ni almacenado.
+  Dirección General de Recursos Humanos, Planificación Educativa e Innovación · CARM 2026<br>
+  Todos los cálculos se realizan en su dispositivo. Ningún dato es enviado ni almacenado.
 </div>
 <script>
 // Tramos IRPF 2025 — Escala estatal (Art. 63 Ley IRPF)
@@ -195,7 +195,7 @@ function tipoMarginal(base,tramos){
 function tipoTotal(base){return tipoMarginal(base,tramosEstatal)+tipoMarginal(base,tramosCARM);}
 function estimarBase(retrib){return Math.max(0,retrib-(retrib*0.047)-2000);}
 
-// Calculo exacto por tramos del impuesto generado por el 0,5%
+// Cálculo exacto por tramos del impuesto generado por el 0,5%
 function impuestoSobreImporte(basePrevia,importe,tramos){
   let impuesto=0, restante=importe, acumulado=basePrevia;
   for(const t of tramos){
@@ -224,7 +224,7 @@ function calcular(){
   const b25input=parseFloat(document.getElementById('base2025').value)||0;
 
   if(!i05){alert('Introduzca el importe integro satisfecho.');return;}
-  if(!b24){alert('Introduzca la base liquidable de su declaracion de 2024 (casilla 0505).');return;}
+  if(!b24){alert('Introduzca la base liquidable de su declaración de 2024 (casilla 0505).');return;}
   if(!retrib2025){alert('Introduzca sus retribuciones dinerarias totales de 2025.');return;}
 
   // Base 2025: introducida o estimada
@@ -251,7 +251,7 @@ function calcular(){
   // Pasa a estar obligado: antes NO (retrib sin 0.5% < 22000) y ahora SI (retrib con 0.5% >= 22000)
   const pasaAEstarObligado = (retrib2025 < 22000) && (retrib2025con05 >= 22000);
 
-  // Nota sobre estimacion
+  // Nota sobre estimación
   const est=b25input===0?' (base estimada a partir de las retribuciones)':'';
 
   const hdr=document.getElementById('resultado-header');
@@ -281,11 +281,11 @@ function calcular(){
   if(pasaAEstarObligado){
     hdr.classList.add('alerta');cif.classList.add('alerta');
     ico.textContent='⚠️';
-    tit.textContent='Pasa a estar obligado a presentar declaracion';
+    tit.textContent='Pasa a estar obligado a presentar declaración';
     sub.textContent='Con el 0,5% incluido en 2025 sus retribuciones superan los 22.000 euros';
     cif.textContent=fmt(retrib2025con05);
     etq.textContent='retribuciones totales 2025 incluyendo el 0,5%';
-    not.textContent='Con el nuevo certificado sus retribuciones de 2025 superan los 22.000 euros. Le recomendamos verificarlo con el simulador de la AEAT antes de presentar su declaracion.'+est;
+    not.textContent='Con el nuevo certificado sus retribuciones de 2025 superan los 22.000 euros. Le recomendamos verificarlo con el simulador de la AEAT antes de presentar su declaración.'+est;
   }
   else if(false){
     hdr.classList.add('neutro');cif.classList.add('neutro');
@@ -301,10 +301,10 @@ function calcular(){
     hdr.classList.add('neutro');cif.classList.add('neutro');
     ico.textContent='✓';
     tit.textContent='La correccion no tiene impacto economico';
-    sub.textContent='El resultado de su declaracion no variara por esta correccion';
+    sub.textContent='El resultado de su declaración no variara por esta correccion';
     cif.textContent='0,00 EUR';
     etq.textContent='diferencia estimada';
-    not.textContent='El 0,5% tributa al mismo tipo en 2024 y en 2025. La correccion es un tramite administrativo que no afecta al resultado de su declaracion. No conlleva multa, intereses ni recargo.'+est;
+    not.textContent='El 0,5% tributa al mismo tipo en 2024 y en 2025. La correccion es un trámite administrativo que no afecta al resultado de su declaración. No conlleva multa, intereses ni recargo.'+est;
   }
   // CASO 2a: Le beneficia (tramo mas favorable en 2025)
   else if(dif>0){
@@ -314,7 +314,7 @@ function calcular(){
     sub.textContent='El 0,5% tributa en un tramo ligeramente mas favorable en 2025';
     cif.textContent=fmt(dif);
     etq.textContent='diferencia estimada a su favor';
-    not.textContent='Al incluir el 0,5% en su declaracion de 2025 el resultado es marginalmente mejor que en 2024. La correccion no tiene multa, intereses ni recargo.'+est;
+    not.textContent='Al incluir el 0,5% en su declaración de 2025 el resultado es marginalmente mejor que en 2024. La correccion no tiene multa, intereses ni recargo.'+est;
   }
   // CASO 2b: Pequena diferencia (tramo superior en 2025)
   else {
@@ -323,8 +323,8 @@ function calcular(){
     tit.textContent='La correccion conlleva una pequena diferencia a ingresar';
     sub.textContent='El 0,5% tributa en un tramo ligeramente superior en 2025 respecto a 2024';
     cif.textContent=fmt(Math.abs(dif));
-    etq.textContent='diferencia estimada a ingresar en su declaracion de 2025';
-    not.textContent='Esta pequena diferencia se debe al cambio de tramo entre ejercicios. Renta Web lo calculara automaticamente al presentar su declaracion corregida. No conlleva multa, intereses ni recargo.'+est;
+    etq.textContent='diferencia estimada a ingresar en su declaración de 2025';
+    not.textContent='Esta pequena diferencia se debe al cambio de tramo entre ejercicios. Renta Web lo calculará automaticamente al presentar su declaración corregida. No conlleva multa, intereses ni recargo.'+est;
   }
 
   document.getElementById('resultado').classList.add('visible');
