@@ -130,12 +130,60 @@
 
   .pie { text-align: center; font-size: 0.75rem; color: #9090A8; margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--borde); letter-spacing: 0.04em; }
 
-  @media (max-width: 500px) {
-    body { font-size: 16px; }
-    .cabecera { padding: 1rem; }
-    .contenedor { padding: 1.25rem 1rem 3rem; }
-    .contacto-grid { grid-template-columns: 1fr; }
+  @media (max-width: 600px) {
+    body { font-size: 15px; }
+    .cabecera { padding: 0.85rem 1rem; }
+    .cabecera-org { font-size: 0.68rem; }
+    .cabecera-org strong { font-size: 0.75rem; }
+    .escudo { width: 36px; height: 36px; font-size: 1.1rem; }
+    .contenedor { padding: 1rem 0.85rem 3rem; }
+
+    /* Certificado grid: una columna */
     .certificado-grid { grid-template-columns: 1fr; }
+    .contacto-grid { grid-template-columns: 1fr; }
+
+    /* Preguntas */
+    .pregunta-texto { font-size: 1.1rem; padding: 1.1rem 1rem 0.75rem; }
+    .opciones { padding: 0.6rem 1rem 1.1rem; }
+    .opcion-btn { font-size: 0.97rem; padding: 0.85rem 0.9rem; }
+
+    /* Ruta de navegación: wrap en móvil */
+    .paso-ruta { font-size: 0.82rem; word-break: break-word; }
+    .paso-ruta span { display: inline; }
+
+    /* Pasos */
+    .paso { gap: 0.75rem; }
+    .paso-num { width: 28px; height: 28px; font-size: 0.78rem; flex-shrink: 0; }
+    .paso-titulo { font-size: 0.95rem; }
+    .paso-desc { font-size: 0.88rem; }
+
+    /* Botones enlace: ancho completo en móvil */
+    .paso-enlace { display: flex; width: 100%; justify-content: center; font-size: 0.84rem; padding: 0.55rem 0.75rem; margin-top: 0.5rem; box-sizing: border-box; }
+
+    /* Cajas de casillas */
+    .paso-rentaweb { padding: 0.75rem 0.85rem; }
+    .paso-rentaweb-casilla { flex-wrap: wrap; gap: 0.35rem; }
+    .casilla-desc { font-size: 0.82rem; }
+
+    /* Caja certificado */
+    .paso-certificado-fila { flex-direction: column; gap: 0.15rem; align-items: flex-start; }
+    .paso-certificado-valor { font-size: 0.88rem; }
+
+    /* Resumen final */
+    .resultado-resumen { font-size: 0.88rem; }
+    .resultado-cuerpo { padding: 1.1rem 1rem; }
+    .resultado-header { padding: 0.85rem 1rem; }
+    .rht-nombre { font-size: 0.93rem; }
+
+    /* Historial */
+    .historial-item { font-size: 0.79rem; }
+
+    /* Contacto */
+    .contacto { padding: 1rem; }
+    .contacto-valor { font-size: 0.9rem; }
+
+    /* Botón volver */
+    .btn-volver { font-size: 0.85rem; }
   }
 </style>
 </head>
@@ -348,7 +396,7 @@
                   <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 103</span><span class="casilla-desc">Marque esta casilla e indique el motivo: Percepción de atrasos</span></div>
                 </div>
                 <div class="nota nota-ok">✅ Este trámite no tiene ningún coste. No hay multa, ni intereses, ni recargo.</div>
-                <a class="paso-enlace" style="background:#1A7A4A;font-size:0.8rem;padding:0.35rem 0.8rem;margin-top:0.4rem;" href="https://sede.agenciatributaria.gob.es/Sede/irpf/campana-renta/modificacion-declaracion-renta-2025-presentada/resultado-autoliquidacion-rectificativa-devolver.html" target="_blank">📖 Guía AEAT: ver cómo se hace paso a paso</a>
+                <a class="paso-enlace" style="background:#1A7A4A;font-size:0.8rem;padding:0.35rem 0.8rem;margin-top:0.4rem;" href="https://sede.agenciatributaria.gob.es/Sede/ayuda/consultas-informaticas/renta-ayuda-tecnica/renta-2024/modificacion-declaracion-presentada-renta-2024.html" target="_blank">📖 Guía AEAT: ver cómo se hace paso a paso</a>
               </div>
             </div>
             <div class="paso">
@@ -409,7 +457,7 @@
                   <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 103</span><span class="casilla-desc">Marque esta casilla e indique el motivo: Percepción de atrasos</span></div>
                 </div>
                 <div class="nota nota-ok">✅ Este trámite no tiene ningún coste. No hay multa, ni intereses, ni recargo.</div>
-                <a class="paso-enlace" style="background:#1A7A4A;font-size:0.8rem;padding:0.35rem 0.8rem;margin-top:0.4rem;" href="https://sede.agenciatributaria.gob.es/Sede/irpf/campana-renta/modificacion-declaracion-renta-2025-presentada/resultado-autoliquidacion-rectificativa-devolver.html" target="_blank">📖 Guía AEAT: ver cómo se hace paso a paso</a>
+                <a class="paso-enlace" style="background:#1A7A4A;font-size:0.8rem;padding:0.35rem 0.8rem;margin-top:0.4rem;" href="https://sede.agenciatributaria.gob.es/Sede/ayuda/consultas-informaticas/renta-ayuda-tecnica/renta-2024/modificacion-declaracion-presentada-renta-2024.html" target="_blank">📖 Guía AEAT: ver cómo se hace paso a paso</a>
               </div>
             </div>
             <div class="paso">
@@ -418,7 +466,6 @@
                 <div class="paso-titulo">Corrija su declaración de 2025 añadiendo los importes del 0,5%</div>
                 <div class="paso-desc">Acceda a <strong>Modificación de una declaración ya presentada</strong> del ejercicio 2025. En el apartado <strong>Rendimientos del trabajo</strong>, localice a su pagador <strong>Comunidad Autónoma Región de Murcia</strong> y compruebe que la <strong>casilla 003</strong> refleja el importe total del nuevo certificado, que ya incluye el 0,5%.</div>
                 <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Corregir mi declaración de 2025</a>
-                <a class="paso-enlace" style="background:#1A7A4A;font-size:0.8rem;padding:0.35rem 0.8rem;margin-top:0.4rem;" href="https://sede.agenciatributaria.gob.es/Sede/irpf/campana-renta/modificacion-declaracion-renta-2025-presentada/resultado-autoliquidacion-rectificativa-ingresar-mayor-importe.html" target="_blank">📖 Guía AEAT: ver cómo se hace paso a paso</a>
                 <div class="paso-rentaweb">
                   <div class="paso-rentaweb-titulo">Dónde añadir en Renta Web</div>
                   <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 003</span><span class="casilla-desc">Retribuciones dinerarias — debe coincidir con el importe total del nuevo certificado</span></div>
@@ -434,7 +481,7 @@
               </div>
             </div>
           </div>
-          <div class="resultado-resumen"><strong>En resumen</strong>Dos trámites: modificar la complementaria de 2024 (quitando los importes del 0,5%) y corregir la declaración de 2025. Ambos son gratuitos y sin penalización.</div>
+          <div class="resultado-resumen"><strong>En resumen</strong>Dos trámites: modificar la complementaria de 2024 (acceder, quitar los importes del 0,5% de la casilla 003 y marcar la casilla 103) y corregir la declaración de 2025. Ambos son gratuitos y sin penalización.</div>
         </div>
       </div>
       <button class="btn-volver" onclick="reiniciar()">← Volver al inicio</button>
@@ -460,7 +507,6 @@
                 <div class="paso-titulo">Acceda a corregir su declaración de 2025</div>
                 <div class="paso-desc">Entre en la sede electrónica de la Agencia Tributaria con su certificado digital, DNI electrónico o Cl@ve. Pulse en <strong>Modificación de una declaración ya presentada</strong> del ejercicio 2025.</div>
                 <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Corregir mi declaración de 2025</a>
-                <a class="paso-enlace" style="background:#1A7A4A;font-size:0.8rem;padding:0.35rem 0.8rem;margin-top:0.4rem;" href="https://sede.agenciatributaria.gob.es/Sede/irpf/campana-renta/modificacion-declaracion-renta-2025-presentada/resultado-autoliquidacion-rectificativa-ingresar-mayor-importe.html" target="_blank">📖 Guía AEAT: ver cómo se hace paso a paso</a>
                 <div class="nota nota-info">ℹ️ No necesita presentar ninguna declaración complementaria del año 2024.</div>
               </div>
             </div>
@@ -490,7 +536,7 @@
               </div>
             </div>
           </div>
-          <div class="resultado-resumen"><strong>En resumen</strong>Un solo trámite: corregir la declaración de 2025 añadiendo los importes del 0,5% en la casilla 003.</div>
+          <div class="resultado-resumen"><strong>En resumen</strong>Un solo trámite: corregir la declaración de 2025 añadiendo los importes del 0,5% en la casilla 003 (retribuciones) y actualizando la casilla 596 (retenciones).</div>
         </div>
       </div>
       <button class="btn-volver" onclick="reiniciar()">← Volver al inicio</button>
@@ -574,7 +620,6 @@
                 <div class="paso-titulo">Si no coinciden, corrija su declaración de 2025</div>
                 <div class="paso-desc">Acceda a <strong>Modificación de una declaración ya presentada</strong> del ejercicio 2025. Actualice la <strong>casilla 003</strong> con el importe total del nuevo certificado y la <strong>casilla 596</strong> con las retenciones.</div>
                 <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Corregir mi declaración de 2025</a>
-                <a class="paso-enlace" style="background:#1A7A4A;font-size:0.8rem;padding:0.35rem 0.8rem;margin-top:0.4rem;" href="https://sede.agenciatributaria.gob.es/Sede/irpf/campana-renta/modificacion-declaracion-renta-2025-presentada/resultado-autoliquidacion-rectificativa-ingresar-mayor-importe.html" target="_blank">📖 Guía AEAT: ver cómo se hace paso a paso</a>
                 <div class="nota nota-ok">✅ Este trámite no tiene ningún coste.</div>
               </div>
             </div>
