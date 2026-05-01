@@ -8,9 +8,8 @@
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
   :root {
     --azul: #003B7A; --azul-medio: #0057B3; --azul-claro: #E8F0FA;
-    --verde: #1A7A4A; --verde-claro: #E6F4ED; --verde-borde: #9ED4B8;
+    --verde: #1A7A4A; --verde-claro: #E6F4ED;
     --naranja: #C45000; --naranja-claro: #FDF0E6;
-    --rojo: #B91C1C; --naranja-resultado: #C45000; --naranja-resultado-claro: #FDF0E6;
     --gris-oscuro: #1A1A2E; --gris-medio: #555570; --gris-claro: #F4F5F9;
     --borde: #D4DAE8; --blanco: #FFFFFF;
     --sombra: 0 2px 12px rgba(0,0,0,0.08);
@@ -25,10 +24,11 @@
   .contenedor { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
   .titulo-bloque { margin-bottom: 1.25rem; }
   .titulo-bloque h1 { font-size: clamp(1.2rem, 3vw, 1.55rem); font-weight: 700; color: var(--azul); margin-bottom: 0.4rem; }
-  .titulo-bloque p { font-size: 0.9rem; color: var(--gris-medio); }
-  .aviso { background: var(--naranja-claro); border-left: 4px solid var(--naranja); border-radius: 0 8px 8px 0; padding: 0.85rem 1.1rem; font-size: 0.86rem; color: var(--naranja); margin-bottom: 1.25rem; line-height: 1.5; }
+  .titulo-bloque p { font-size: 0.9rem; color: var(--gris-medio); line-height: 1.6; }
+  .aviso { background: var(--azul-claro); border-left: 4px solid var(--azul-medio); border-radius: 0 8px 8px 0; padding: 0.85rem 1.1rem; font-size: 0.88rem; color: var(--azul-medio); margin-bottom: 1.25rem; line-height: 1.5; }
   .seccion { background: var(--blanco); border: 1.5px solid var(--borde); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; box-shadow: var(--sombra); }
-  .seccion-titulo { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--azul-medio); font-weight: 700; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--borde); }
+  .seccion-titulo { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--azul-medio); font-weight: 700; margin-bottom: 0.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--borde); }
+  .seccion-subtitulo { font-size: 0.82rem; color: var(--gris-medio); margin-bottom: 1rem; margin-top: 0.4rem; }
   .campo { margin-bottom: 0.9rem; }
   .campo:last-child { margin-bottom: 0; }
   .campo label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--gris-oscuro); margin-bottom: 0.3rem; }
@@ -36,13 +36,7 @@
   .campo input { width: 100%; border: 1.5px solid var(--borde); border-radius: 8px; padding: 0.6rem 0.85rem; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--gris-oscuro); background: var(--gris-claro); transition: border-color 0.18s; }
   .campo input:focus { outline: none; border-color: var(--azul-medio); background: white; }
   .campo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .modo-toggle { display: flex; gap: 0.5rem; margin-bottom: 0.9rem; }
-  .modo-btn { flex: 1; padding: 0.55rem 0.5rem; border: 1.5px solid var(--borde); border-radius: 8px; background: var(--gris-claro); font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--gris-medio); cursor: pointer; transition: all 0.18s; text-align: center; }
-  .modo-btn.activo { background: var(--azul-claro); border-color: var(--azul-medio); color: var(--azul); }
-  .modo-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gris-medio); font-weight: 600; margin-bottom: 0.4rem; }
-  .campo-oculto { display: none; }
-  .campo-visible { display: block; }
-  .hint { font-size: 0.78rem; color: var(--gris-medio); margin-top: 0.3rem; }
+  .hint { font-size: 0.78rem; color: var(--gris-medio); margin-top: 0.3rem; line-height: 1.5; }
   .btn-calcular { width: 100%; background: var(--azul); color: white; border: none; border-radius: 10px; padding: 0.9rem; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.18s; margin-top: 0.75rem; }
   .btn-calcular:hover { background: var(--azul-medio); }
   .resultado { display: none; margin-top: 1.5rem; }
@@ -51,10 +45,9 @@
   .resultado-card { border-radius: 12px; overflow: hidden; border: 1.5px solid var(--borde); box-shadow: var(--sombra); }
   .resultado-header { padding: 1.1rem 1.25rem; color: white; display: flex; align-items: center; gap: 0.75rem; }
   .resultado-header.positivo { background: var(--verde); }
-  .resultado-header.naranja { background: var(--naranja); }
   .resultado-header.neutro { background: var(--azul-medio); }
-  .resultado-header.aviso { background: var(--naranja-resultado); }
-  .resultado-header.naranja { background: var(--naranja-resultado); }
+  .resultado-header.aviso { background: var(--naranja); }
+  .resultado-header.info { background: #6B7280; }
   .resultado-icono { font-size: 1.8rem; flex-shrink: 0; }
   .resultado-titulo { font-size: 1.05rem; font-weight: 700; }
   .resultado-subtitulo { font-size: 0.82rem; opacity: 0.88; margin-top: 0.1rem; }
@@ -62,16 +55,14 @@
   .importe-grande { text-align: center; margin: 0.75rem 0 1.35rem; }
   .importe-grande .cifra { font-size: clamp(2rem, 7vw, 3rem); font-weight: 700; line-height: 1; }
   .importe-grande .cifra.positivo { color: var(--verde); }
-  .importe-grande .cifra.naranja { color: var(--naranja); }
   .importe-grande .cifra.neutro { color: var(--azul-medio); }
-  .importe-grande .cifra.naranja { color: var(--naranja-resultado); }
+  .importe-grande .cifra.aviso { color: var(--naranja); }
+  .importe-grande .cifra.info { color: #6B7280; }
   .importe-grande .etiqueta { font-size: 0.83rem; color: var(--gris-medio); margin-top: 0.3rem; }
   .desglose { background: var(--gris-claro); border: 1px solid var(--borde); border-radius: 8px; padding: 0.9rem 1rem; margin-bottom: 1.1rem; }
   .desglose-titulo { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gris-medio); font-weight: 600; margin-bottom: 0.65rem; }
-  .desglose-subtitulo { font-size: 0.78rem; font-weight: 600; color: var(--azul); margin: 0.5rem 0 0.35rem; }
   .desglose-fila { display: flex; justify-content: space-between; align-items: baseline; padding: 0.3rem 0; border-bottom: 1px dashed var(--borde); font-size: 0.87rem; gap: 1rem; }
-  .desglose-fila:last-child { border-bottom: none; }
-  .desglose-fila.total { padding-top: 0.5rem; font-weight: 700; font-size: 0.92rem; }
+  .desglose-fila:last-child { border-bottom: none; padding-top: 0.5rem; font-weight: 700; font-size: 0.92rem; }
   .desglose-concepto { color: var(--gris-medio); flex: 1; }
   .desglose-valor { font-weight: 600; white-space: nowrap; }
   .desglose-sep { border-top: 2px solid var(--borde); margin: 0.4rem 0 0; }
@@ -83,80 +74,74 @@
     .campo-grid { grid-template-columns: 1fr; }
     .contenedor { padding: 1rem 0.85rem 3rem; }
     .cabecera { padding: 0.9rem 1rem; }
-    .modo-btn { font-size: 0.76rem; }
   }
 </style>
 </head>
 <body>
 <div class="cabecera">
   <div class="cabecera-inner">
-    <div class="escudo">&#127963;&#65039;</div>
+    <div class="escudo">🏛️</div>
     <div class="cabecera-org">
-      Region de Murcia - Consejeria de Educacion y Formacion Profesional
+      Region de Murcia · Consejeria de Educacion y Formacion Profesional
       <strong>Direccion General de Recursos Humanos, Planificacion Educativa e Innovacion</strong>
     </div>
   </div>
 </div>
 <div class="contenedor">
   <div class="titulo-bloque">
-    <h1>Calculadora de impacto IRPF - Subida del 0,5%</h1>
-    <p>Estime como le afecta corregir la declaracion de 2024 y declarar correctamente el 0,5% en 2025. Todos los calculos se realizan en su dispositivo. Ningun dato sale de esta pagina.</p>
+    <h1>Calculadora IRPF · Impacto de la correccion del 0,5%</h1>
+    <p>Compruebe si la correccion de su declaracion le afecta economicamente: si cambia de tramo, si tendra que pagar algo diferente o si pasa a estar obligado a declarar.</p>
   </div>
   <div class="aviso">
-    &#9888;&#65039; <strong>Estimacion orientativa.</strong> El resultado exacto puede variar segun otras rentas, deducciones o circunstancias personales. No sustituye a la declaracion oficial en Renta Web.
+    ℹ️ <strong>Estimacion orientativa.</strong> Necesita tener a mano su certificado de retenciones de 2025 y la casilla 0505 de su declaracion de 2024. El resultado no sustituye a la declaracion oficial en Renta Web.
   </div>
+
+  <!-- SECCIÓN 1: DATOS DEL ATRASO -->
   <div class="seccion">
-    <div class="seccion-titulo">Datos del atraso del 0,5% - Del certificado antiguo</div>
+    <div class="seccion-titulo">Rendimientos satisfechos en ejercicios anteriores (atrasos)</div>
+    <div class="seccion-subtitulo">Del apartado "Ejercicio de Devengo 2024" de su certificado de retenciones de 2025</div>
     <div class="campo-grid">
       <div class="campo">
-        <label>Importe integro del 0,5% <span class="ref">(columna "Importe integro satisfecho")</span></label>
+        <label>Importe integro satisfecho</label>
         <input type="number" id="importe05" placeholder="Ej: 240.98" min="0" step="0.01">
       </div>
       <div class="campo">
-        <label>Retenciones practicadas <span class="ref">(columna "Retenciones practicadas")</span></label>
+        <label>Retenciones practicadas</label>
         <input type="number" id="ret05" placeholder="Ej: 36.15" min="0" step="0.01">
       </div>
     </div>
   </div>
+
+  <!-- SECCIÓN 2: DATOS 2024 -->
   <div class="seccion">
-    <div class="seccion-titulo">Su situacion en 2024</div>
-    <div class="modo-label">Como prefiere introducir sus datos de 2024?</div>
-    <div class="modo-toggle">
-      <button class="modo-btn activo" id="btn-casilla2024" onclick="setModo('casilla','2024')">Tengo la casilla 0505</button>
-      <button class="modo-btn" id="btn-bruto2024" onclick="setModo('bruto','2024')">Solo tengo el sueldo bruto</button>
-    </div>
-    <div id="campo-casilla2024" class="campo campo-visible">
-      <label>Base liquidable general 2024 <span class="ref">(casilla 0505 de su declaracion de 2024)</span></label>
+    <div class="seccion-titulo">Datos de su declaracion de la renta 2024</div>
+    <div class="seccion-subtitulo">Para calcular el tramo en el que tributo el 0,5% en la complementaria de 2024</div>
+    <div class="campo">
+      <label>Base liquidable general <span class="ref">(casilla 0505 de su declaracion de 2024)</span></label>
       <input type="number" id="base2024" placeholder="Ej: 45128.52" min="0" step="0.01">
-    </div>
-    <div id="campo-bruto2024" class="campo campo-oculto">
-      <label>Retribuciones brutas 2024 <span class="ref">(casilla 003 de su declaracion o del certificado)</span></label>
-      <input type="number" id="bruto2024" placeholder="Ej: 48500.00" min="0" step="0.01">
-      <div class="hint">La base se estimara descontando cotizaciones a la SS (4,7%) y gastos deducibles estandar (2.000 euros).</div>
+      <div class="hint">La encontrara en su declaracion de la renta 2024 ya presentada.</div>
     </div>
   </div>
+
+  <!-- SECCIÓN 3: DATOS 2025 -->
   <div class="seccion">
-    <div class="seccion-titulo">Su situacion en 2025</div>
-    <div class="modo-label">Como prefiere introducir sus datos de 2025?</div>
-    <div class="modo-toggle">
-      <button class="modo-btn activo" id="btn-casilla2025" onclick="setModo('casilla','2025')">Tengo la casilla 0505</button>
-      <button class="modo-btn" id="btn-bruto2025" onclick="setModo('bruto','2025')">Solo tengo el sueldo bruto</button>
+    <div class="seccion-titulo">Datos de su declaracion de la renta 2025</div>
+    <div class="seccion-subtitulo">Para calcular el tramo en el que tributara el 0,5% en 2025 y si esta obligado a declarar</div>
+    <div class="campo">
+      <label>Retribuciones dinerarias totales 2025 <span class="ref">(casilla 003 de su certificado de 2025, sin el 0,5%)</span></label>
+      <input type="number" id="retrib2025" placeholder="Ej: 50988.96" min="0" step="0.01">
+      <div class="hint">Aparece en la parte superior de su certificado de retenciones de 2025, en "Retribuciones NO derivadas de incapacidad laboral — Dinerarias".</div>
     </div>
-    <div id="campo-casilla2025" class="campo campo-visible">
-      <label>Base liquidable general 2025 <span class="ref">(casilla 0505 del borrador/declaracion 2025, SIN el 0,5%)</span></label>
+    <div class="campo">
+      <label>Base liquidable general 2025 <span class="ref">(casilla 0505 de su borrador de 2025, sin el 0,5%)</span></label>
       <input type="number" id="base2025" placeholder="Ej: 46236.20" min="0" step="0.01">
-    </div>
-    <div id="campo-bruto2025" class="campo campo-oculto">
-      <label>Retribuciones brutas 2025 <span class="ref">(casilla 003 del nuevo certificado, SIN el 0,5%)</span></label>
-      <input type="number" id="bruto2025" placeholder="Ej: 50988.96" min="0" step="0.01">
-      <div class="hint">La base se estimara descontando cotizaciones a la SS (4,7%) y gastos deducibles estandar (2.000 euros).</div>
-    </div>
-    <div class="campo" style="margin-top:0.9rem;">
-      <label>Retenciones sobre el 0,5% en el nuevo certificado de 2025 <span class="ref">(si las conoce; si no, deje 0)</span></label>
-      <input type="number" id="ret05_2025" placeholder="0" min="0" step="0.01" value="0">
+      <div class="hint">Si no dispone de ella, dejela en blanco y la estimaremos a partir de sus retribuciones.</div>
     </div>
   </div>
-  <button class="btn-calcular" onclick="calcular()">Calcular impacto estimado</button>
+
+  <button class="btn-calcular" onclick="calcular()">Calcular impacto</button>
+
+  <!-- RESULTADO -->
   <div class="resultado" id="resultado">
     <div class="resultado-card">
       <div class="resultado-header" id="resultado-header">
@@ -173,21 +158,15 @@
         </div>
         <div class="desglose">
           <div class="desglose-titulo">Desglose del calculo</div>
-          <div class="desglose-subtitulo">Complementaria 2024 (lo que hizo)</div>
+          <div class="desglose-fila"><span class="desglose-concepto">Importe del 0,5%</span><span class="desglose-valor" id="d-importe"></span></div>
+          <div class="desglose-fila"><span class="desglose-concepto">Retenciones ya practicadas</span><span class="desglose-valor" id="d-ret"></span></div>
           <div class="desglose-fila"><span class="desglose-concepto">Base liquidable 2024</span><span class="desglose-valor" id="d-base2024"></span></div>
           <div class="desglose-fila"><span class="desglose-concepto">Tipo marginal en 2024</span><span class="desglose-valor" id="d-tipo2024"></span></div>
-          <div class="desglose-fila"><span class="desglose-concepto">Impuesto sobre el 0,5% en 2024</span><span class="desglose-valor" id="d-imp2024"></span></div>
-          <div class="desglose-fila"><span class="desglose-concepto">Retenciones ya practicadas en 2024</span><span class="desglose-valor" id="d-ret2024"></span></div>
-          <div class="desglose-fila"><span class="desglose-concepto">Coste neto en 2024</span><span class="desglose-valor" id="d-coste2024"></span></div>
-          <div class="desglose-sep"></div>
-          <div class="desglose-subtitulo">Declaracion 2025 (lo que hara)</div>
-          <div class="desglose-fila"><span class="desglose-concepto">Base liquidable 2025 (con el 0,5%)</span><span class="desglose-valor" id="d-base2025"></span></div>
+          <div class="desglose-fila"><span class="desglose-concepto">Base liquidable 2025 con el 0,5%</span><span class="desglose-valor" id="d-base2025"></span></div>
           <div class="desglose-fila"><span class="desglose-concepto">Tipo marginal en 2025</span><span class="desglose-valor" id="d-tipo2025"></span></div>
-          <div class="desglose-fila"><span class="desglose-concepto">Impuesto sobre el 0,5% en 2025</span><span class="desglose-valor" id="d-imp2025"></span></div>
-          <div class="desglose-fila"><span class="desglose-concepto">Retenciones practicadas en 2025</span><span class="desglose-valor" id="d-ret2025"></span></div>
-          <div class="desglose-fila"><span class="desglose-concepto">Coste neto en 2025</span><span class="desglose-valor" id="d-coste2025"></span></div>
+          <div class="desglose-fila"><span class="desglose-concepto">Retribuciones totales 2025 con el 0,5%</span><span class="desglose-valor" id="d-retrib2025"></span></div>
           <div class="desglose-sep"></div>
-          <div class="desglose-fila total"><span class="desglose-concepto">Diferencia neta estimada</span><span class="desglose-valor" id="d-diferencia"></span></div>
+          <div class="desglose-fila"><span class="desglose-concepto">Diferencia estimada</span><span class="desglose-valor" id="d-diferencia"></span></div>
         </div>
         <div class="nota-resultado" id="nota-resultado"></div>
         <button class="btn-reiniciar" onclick="reiniciar()">Hacer otro calculo</button>
@@ -196,64 +175,90 @@
   </div>
 </div>
 <div class="pie">
-  Herramienta de uso orientativo - No constituye asesoramiento fiscal<br>
-  Direccion General de Recursos Humanos, Planificacion Educativa e Innovacion - CARM 2026<br>
-  Todos los calculos se realizan localmente en su dispositivo. Ningun dato es enviado ni almacenado.
+  Herramienta de uso orientativo · No constituye asesoramiento fiscal<br>
+  Direccion General de Recursos Humanos, Planificacion Educativa e Innovacion · CARM 2026<br>
+  Todos los calculos se realizan en su dispositivo. Ningun dato es enviado ni almacenado.
 </div>
 <script>
+// Tramos IRPF 2025 — Escala estatal (Art. 63 Ley IRPF)
 const tramosEstatal=[{hasta:12450,tipo:0.095},{hasta:20200,tipo:0.120},{hasta:35200,tipo:0.150},{hasta:60000,tipo:0.185},{hasta:300000,tipo:0.225},{hasta:Infinity,tipo:0.245}];
+// Tramos IRPF 2025 — Escala autonomica CARM (Art. 2 DL 1/2010, verificado Manual Practico Renta 2025 AEAT)
 const tramosCARM=[{hasta:12450,tipo:0.095},{hasta:20200,tipo:0.112},{hasta:34000,tipo:0.133},{hasta:60000,tipo:0.179},{hasta:Infinity,tipo:0.225}];
-const modos={'2024':'casilla','2025':'casilla'};
-function setModo(modo,a){
-  modos[a]=modo;
-  document.getElementById('btn-casilla'+a).className='modo-btn'+(modo==='casilla'?' activo':'');
-  document.getElementById('btn-bruto'+a).className='modo-btn'+(modo==='bruto'?' activo':'');
-  document.getElementById('campo-casilla'+a).className='campo '+(modo==='casilla'?'campo-visible':'campo-oculto');
-  document.getElementById('campo-bruto'+a).className='campo '+(modo==='bruto'?'campo-visible':'campo-oculto');
-}
+
 function tipoMarginal(base,tramos){for(const t of tramos){if(base<=t.hasta)return t.tipo;}return tramos[tramos.length-1].tipo;}
 function tipoTotal(base){return tipoMarginal(base,tramosEstatal)+tipoMarginal(base,tramosCARM);}
-function estimarBase(bruto){return Math.max(0,bruto-(bruto*0.047)-2000);}
-function getBase(a){
-  if(modos[a]==='casilla'){return parseFloat(document.getElementById('base'+a).value)||null;}
-  const b=parseFloat(document.getElementById('bruto'+a).value)||null;
-  return b?estimarBase(b):null;
-}
-function isEst(a){return modos[a]==='bruto';}
-function fmt(n,s=false){
+function estimarBase(retrib){return Math.max(0,retrib-(retrib*0.047)-2000);}
+
+function fmt(n,signo=false){
   const abs=Math.abs(n).toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})+' EUR';
-  if(s)return(n>=0?'+':'-')+abs;
+  if(signo)return(n>=0?'+':'-')+abs;
   return abs;
 }
+
+// Calculo del impuesto por tramos (solo sobre el importe que cambia de tramo)
+function impuestoSobreImporte(basePrevia, importe, tramos){
+  // Calcula el impuesto que genera 'importe' añadido sobre 'basePrevia'
+  let impuesto=0;
+  let restante=importe;
+  let acumulado=basePrevia;
+  for(const t of tramos){
+    if(acumulado>=t.hasta) continue;
+    const espacioEnTramo=t.hasta-acumulado;
+    const enEsteTramo=Math.min(restante,espacioEnTramo);
+    impuesto+=enEsteTramo*t.tipo;
+    restante-=enEsteTramo;
+    acumulado+=enEsteTramo;
+    if(restante<=0) break;
+  }
+  return impuesto;
+}
+
 function calcular(){
   const i05=parseFloat(document.getElementById('importe05').value)||0;
   const r05=parseFloat(document.getElementById('ret05').value)||0;
-  const r25=parseFloat(document.getElementById('ret05_2025').value)||0;
-  const b24=getBase('2024');
-  const b25=getBase('2025');
-  if(!i05){alert('Introduzca el importe del 0,5%.');return;}
-  if(!b24){alert('Introduzca los datos de 2024.');return;}
-  if(!b25){alert('Introduzca los datos de 2025.');return;}
+  const b24=parseFloat(document.getElementById('base2024').value)||0;
+  const retrib2025=parseFloat(document.getElementById('retrib2025').value)||0;
+  const b25input=parseFloat(document.getElementById('base2025').value)||0;
+
+  if(!i05){alert('Introduzca el importe integro satisfecho.');return;}
+  if(!b24){alert('Introduzca la base liquidable de su declaracion de 2024 (casilla 0505).');return;}
+  if(!retrib2025){alert('Introduzca sus retribuciones dinerarias totales de 2025.');return;}
+
+  // Base 2025: usar la introducida o estimarla
+  const b25=b25input>0 ? b25input : estimarBase(retrib2025);
+  const b25con05=b25+i05;
+  const retrib2025con05=retrib2025+i05;
+
+  // Impuesto real sobre el 0,5% en cada ejercicio (calculo por tramos)
+  const imp24Estatal=impuestoSobreImporte(b24,i05,tramosEstatal);
+  const imp24CARM=impuestoSobreImporte(b24,i05,tramosCARM);
+  const imp24=imp24Estatal+imp24CARM;
+
+  const imp25Estatal=impuestoSobreImporte(b25,i05,tramosEstatal);
+  const imp25CARM=impuestoSobreImporte(b25,i05,tramosCARM);
+  const imp25=imp25Estatal+imp25CARM;
+
+  // Tipos marginales (para mostrar en desglose)
   const t24=tipoTotal(b24);
-  const imp24=i05*t24;
-  const c24=imp24-r05;
-  const b25c=b25+i05;
-  const t25=tipoTotal(b25c);
-  const imp25=i05*t25;
-  const c25=imp25-r25;
-  const dif=c24-c25;
-  const est=(isEst('2024')||isEst('2025'))?' (base estimada a partir del sueldo bruto)':'';
-  document.getElementById('d-base2024').textContent=fmt(b24)+(isEst('2024')?' *':'');
+  const t25=tipoTotal(b25con05);
+
+  // Diferencia: positivo = le beneficia en 2025, negativo = le cuesta algo mas
+  const dif=imp24-imp25;
+
+  // Obligacion de declarar
+  const obligadoAntes=retrib2025>=22000; // con el certificado erroneo
+  const obligadoAhora=retrib2025con05>=22000; // con el correcto
+
+  // Rellenar desglose
+  document.getElementById('d-importe').textContent=fmt(i05);
+  document.getElementById('d-ret').textContent=fmt(r05);
+  document.getElementById('d-base2024').textContent=fmt(b24);
   document.getElementById('d-tipo2024').textContent=(t24*100).toFixed(1)+'%';
-  document.getElementById('d-imp2024').textContent=fmt(imp24);
-  document.getElementById('d-ret2024').textContent=fmt(r05);
-  document.getElementById('d-coste2024').textContent=fmt(c24);
-  document.getElementById('d-base2025').textContent=fmt(b25c)+(isEst('2025')?' *':'');
+  document.getElementById('d-base2025').textContent=fmt(b25con05)+(b25input===0?' *':'');
   document.getElementById('d-tipo2025').textContent=(t25*100).toFixed(1)+'%';
-  document.getElementById('d-imp2025').textContent=fmt(imp25);
-  document.getElementById('d-ret2025').textContent=fmt(r25);
-  document.getElementById('d-coste2025').textContent=fmt(c25);
+  document.getElementById('d-retrib2025').textContent=fmt(retrib2025con05);
   document.getElementById('d-diferencia').textContent=fmt(dif,true);
+
   const hdr=document.getElementById('resultado-header');
   const ico=document.getElementById('resultado-icono');
   const tit=document.getElementById('resultado-titulo');
@@ -261,29 +266,56 @@ function calcular(){
   const cif=document.getElementById('cifra-grande');
   const etq=document.getElementById('cifra-etiqueta');
   const not=document.getElementById('nota-resultado');
-  hdr.className='resultado-header'; cif.className='cifra';
-  if(Math.abs(dif)<5){
-    hdr.classList.add('neutro');cif.classList.add('neutro');
-    ico.textContent='→';tit.textContent='La correccion no tiene impacto economico';
-    sub.textContent='El 0,5% tributa igual en 2024 y en 2025';
-    cif.textContent=fmt(Math.abs(dif));etq.textContent='diferencia estimada';
-    not.textContent='Su situacion fiscal no cambia con la correccion. Tributa al mismo tipo marginal en ambos ejercicios. Realice igualmente los tramites, que son obligatorios y no tienen coste alguno.'+est;
-  }else if(dif>0){
-    hdr.classList.add('positivo');cif.classList.add('positivo');
-    ico.textContent='✓';tit.textContent='La correccion le resulta favorable';
-    sub.textContent='Declarar el 0,5% en 2025 le sale mejor que como estaba';
-    cif.textContent=fmt(dif);etq.textContent='estimado a su favor tras la correccion';
-    not.textContent='Al trasladar el 0,5% a 2025 paga menos impuesto que con la complementaria de 2024. Realice los tramites cuanto antes. No tienen ningun coste ni penalizacion.'+est;
-  }else{
-    hdr.classList.add('naranja');cif.classList.add('naranja');
-    ico.textContent='→';tit.textContent='La correccion tiene un pequeño ajuste';
-    sub.textContent='El 0,5% tributa algo mas en 2025 que en 2024';
-    cif.textContent=fmt(Math.abs(dif));etq.textContent='diferencia estimada';
-    not.textContent='La diferencia es pequeña y se debe al tramo marginal de cada ejercicio. La correccion es obligatoria pero no tiene multa, intereses ni recargo. El resultado exacto lo calculara Renta Web.'+est;
+  const est=b25input===0?' (base estimada a partir de las retribuciones)':'';
+
+  hdr.className='resultado-header';
+  cif.className='cifra';
+
+  // Caso especial: pasa a NO estar obligado a declarar
+  if(obligadoAntes && !obligadoAhora){
+    hdr.classList.add('info');cif.classList.add('info');
+    ico.textContent='ℹ️';
+    tit.textContent='Puede que no este obligado a presentar declaracion';
+    sub.textContent='Sus retribuciones correctas quedan por debajo de los 22.000 euros';
+    cif.textContent=fmt(retrib2025con05);
+    etq.textContent='retribuciones totales con el 0,5% incluido';
+    not.textContent='Con el certificado erroneo sus retribuciones superaban el umbral de 22.000 euros. Con el certificado correcto puede que no este obligado a declarar. Le recomendamos comprobarlo con el simulador gratuito de la AEAT en sede.agenciatributaria.gob.es antes de tomar ninguna decision.';
+    document.getElementById('resultado').classList.add('visible');
+    setTimeout(()=>document.getElementById('resultado').scrollIntoView({behavior:'smooth',block:'start'}),50);
+    return;
   }
+
+  // Casos normales
+  if(Math.abs(dif)<2){
+    hdr.classList.add('neutro');cif.classList.add('neutro');
+    ico.textContent='✓';
+    tit.textContent='Sin impacto economico apreciable';
+    sub.textContent='La correccion no le supone ningun coste ni beneficio adicional';
+    cif.textContent='0,00 EUR';
+    etq.textContent='diferencia estimada';
+    not.textContent='El 0,5% tributa al mismo tipo marginal en 2024 y en 2025. La correccion es obligatoria pero economicamente neutra para usted. No tiene multa, intereses ni recargo.'+est;
+  } else if(dif>0){
+    hdr.classList.add('positivo');cif.classList.add('positivo');
+    ico.textContent='✓';
+    tit.textContent='La correccion le resulta ligeramente favorable';
+    sub.textContent='En 2025 el 0,5% tributa en un tramo mas favorable que en 2024';
+    cif.textContent=fmt(dif);
+    etq.textContent='estimado a su favor';
+    not.textContent='Al trasladar el 0,5% a 2025 el resultado es ligeramente positivo para usted. La correccion no tiene multa, intereses ni recargo.'+est;
+  } else {
+    hdr.classList.add('aviso');cif.classList.add('aviso');
+    ico.textContent='→';
+    tit.textContent='Pequeña diferencia a tener en cuenta';
+    sub.textContent='En 2025 el 0,5% tributa en un tramo ligeramente superior al de 2024';
+    cif.textContent=fmt(Math.abs(dif));
+    etq.textContent='diferencia estimada';
+    not.textContent='La diferencia se debe al cambio de tramo marginal entre ejercicios. La correccion es obligatoria pero no tiene multa, intereses ni recargo. El calculo exacto lo realizara Renta Web automaticamente.'+est;
+  }
+
   document.getElementById('resultado').classList.add('visible');
   setTimeout(()=>document.getElementById('resultado').scrollIntoView({behavior:'smooth',block:'start'}),50);
 }
+
 function reiniciar(){
   document.getElementById('resultado').classList.remove('visible');
   window.scrollTo({top:0,behavior:'smooth'});
