@@ -250,8 +250,10 @@ function calcular(){
   // retrib2025con05 = con el 0,5% = certificado ERRONEO
   // Con certificado erroneo: el 0.5% iba como atraso de 2024, NO en retrib 2025
   // Con certificado correcto: el 0.5% SI va en retrib 2025
-  // Pasa a estar obligado: antes NO (retrib sin 0.5% < 22000) y ahora SI (retrib con 0.5% >= 22000)
-  const pasaAEstarObligado = (retrib2025 < 22000) && (retrib2025con05 >= 22000);
+  // retrib2025 ya incluye el 0,5% (certificado correcto)
+  // Con certificado erroneo: retrib2025 - i05 (sin el 0,5%)
+  // Pasa a estar obligado: antes NO (sin 0,5% < 22000) y ahora SI (con 0,5% >= 22000)
+  const pasaAEstarObligado = (retrib2025 - i05 < 22000) && (retrib2025 >= 22000);
 
   // Nota sobre estimación
   const est=b25input===0?' (base estimada a partir de las retribuciones)':'';
