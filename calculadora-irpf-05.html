@@ -121,7 +121,7 @@
     <div class="seccion-titulo">Datos de su declaración de la renta 2024</div>
     <div class="seccion-subtitulo">Para calcular el tramo en el que tributo el 0,5% en la complementaria de 2024</div>
     <div class="campo">
-      <label>Base liquidable general <span class="ref">(casilla 0505 de su declaración de 2024 ya presentada)</span></label>
+      <label>Base liquidable general <span class="ref">(casilla 0505 de su declaración ordinaria de 2024)</span></label>
       <input type="number" id="base2024" placeholder="Ej: 45.128,52" min="0" step="0.01">
     </div>
   </div>
@@ -131,14 +131,14 @@
     <div class="seccion-titulo">Datos de su declaración de la renta 2025</div>
     <div class="seccion-subtitulo">Para calcular si cambia de tramo respecto a 2024 y cómo le afectaría económicamente</div>
     <div class="campo">
-      <label>Retribuciones dinerarias totales 2025 <span class="ref">(casilla 003 del nuevo certificado correcto de 2025)</span></label>
+      <label>Retribuciones dinerarias totales 2025 <span class="ref">(casilla 003 del certificado correcto de 2025)</span></label>
       <input type="number" id="retrib2025" placeholder="Ej: 50.988,96" min="0" step="0.01">
-      <div class="hint">Figura en la parte superior del nuevo certificado correcto de 2025, en &quot;Retribuciones NO derivadas de incapacidad laboral — Dinerarias&quot;. Este importe ya incluye el 0,5% integrado como rendimiento de 2025.</div>
+      <div class="hint">Figura en la parte superior de su certificado correcto de 2025, en &quot;Retribuciones NO derivadas de incapacidad laboral — Dinerarias&quot;. Este importe ya incluye el 0,5% como rendimiento normal de 2025.</div>
     </div>
     <div class="campo">
       <label>Base liquidable general 2025 <span class="ref">(casilla 0505 de su borrador de 2025)</span></label>
       <input type="number" id="base2025" placeholder="Ej: 46.236,20" min="0" step="0.01">
-      <div class="hint">La encontrará en su borrador de 2025, aunque se generara con el certificado erróneo.</div>
+      <div class="hint">La encontrará en el borrador generado con el certificado correcto. Ya incluye el 0,5% como rendimiento de 2025.</div>
     </div>
   </div>
 
@@ -229,16 +229,18 @@ function calcular(){
 
   // Base 2025: introducida o estimada
   const b25=b25input>0?b25input:estimarBase(retrib2025);
-  const b25con05=b25+i05;
-  const retrib2025con05=retrib2025+i05;
+  // Base y retribuciones del borrador/certificado correcto ya incluyen el 0,5%
+  const b25con05=b25;
+  const retrib2025con05=retrib2025;
 
   // Impuesto exacto por tramos sobre el 0,5% en cada ejercicio
   const imp24=impuestoSobreImporte(b24,i05,tramosEstatal)+impuestoSobreImporte(b24,i05,tramosCARM);
-  const imp25=impuestoSobreImporte(b25,i05,tramosEstatal)+impuestoSobreImporte(b25,i05,tramosCARM);
+  // b25 ya incluye el 0,5% - la base previa es b25-i05
+  const imp25=impuestoSobreImporte(b25-i05,i05,tramosEstatal)+impuestoSobreImporte(b25-i05,i05,tramosCARM);
 
   // Tipos marginales para mostrar
   const t24=tipoTotal(b24);
-  const t25=tipoTotal(b25con05);
+  const t25=tipoTotal(b25);
 
   // Diferencia economica
   const dif=imp24-imp25;
