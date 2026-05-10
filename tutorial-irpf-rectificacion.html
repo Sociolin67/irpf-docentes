@@ -423,7 +423,7 @@
 
 <div class="cabecera">
   <div class="cabecera-inner">
-    <div class="escudo"><img src="https://raw.githubusercontent.com/Sociolin67/irpf-docentes/main/educarm.jpg" style="width:36px;height:36px;object-fit:contain;border-radius:4px;"></div>
+    <div class="escudo">🏛️</div>
     <div class="cabecera-org">
       Región de Murcia · Consejería de Educación y Formación Profesional
       <strong>Dirección General de Recursos Humanos, Planificación Educativa e Innovación</strong>
@@ -437,15 +437,21 @@
   <div class="aviso-actualizado">
     <span style="font-size:1.3rem;flex-shrink:0;margin-top:0.05rem;">✅</span>
     <div>
-      <strong>La Agencia Tributaria ha actualizado sus datos fiscales.</strong>
-      <div style="margin-top:0.3rem;font-size:0.92rem;">Su borrador de Renta 2025 ya refleja los importes correctos. Puede actuar directamente desde Renta Web sin necesidad de introducir datos manualmente.</div>
+      <strong>La AEAT ha procesado el modelo 190 corregido por la CARM y ha actualizado los datos fiscales.</strong>
+      <div style="margin-top:0.3rem;font-size:0.92rem;">Al acceder a Renta Web el sistema cargará automáticamente los importes correctos. No es necesario introducir ningún dato manualmente.</div>
     </div>
   </div>
 
-  <!-- AVISO CERTIFICADO -->
+  <!-- AVISO QUIEN YA ACTUÓ -->
+  <div style="background:var(--verde-claro);border:1.5px solid var(--verde-borde);border-radius:10px;padding:1rem 1.25rem;display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:0.75rem;font-size:0.92rem;color:var(--verde);">
+    <span style="font-size:1.2rem;flex-shrink:0;margin-top:0.05rem;">ℹ️</span>
+    <div>Si ya realizó los trámites durante el periodo transitorio introduciendo los datos manualmente con el nuevo certificado, <strong>no necesita hacer nada más</strong>. Su declaración ya está correcta.</div>
+  </div>
+
+  <!-- AVISO A QUIÉN VA DIRIGIDA -->
   <div style="background:var(--azul-claro);border:1.5px solid var(--borde);border-radius:10px;padding:1rem 1.25rem;display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:1.75rem;font-size:0.92rem;color:var(--azul);">
     <span style="font-size:1.2rem;flex-shrink:0;margin-top:0.05rem;">ℹ️</span>
-    <div>Esta guía es para docentes que ya presentaron una declaración complementaria del ejercicio 2024 o una declaración de 2025 con datos incorrectos y necesitan rectificarla. Si aún no ha presentado nada, acceda directamente a su borrador actualizado en Renta Web y preséntelo.</div>
+    <div>Esta guía es para docentes que presentaron la declaración complementaria del ejercicio 2024 y/o confirmaron el borrador de 2025 con datos incorrectos, y aún no han rectificado. El sistema ya cargará los datos correctos automáticamente.</div>
   </div>
 
   <!-- TÍTULO -->
@@ -607,17 +613,17 @@
           <div class="paso">
             <div class="paso-num">3</div>
             <div class="paso-body">
-              <div class="paso-titulo">Corrija su declaración de 2025 mediante autoliquidación rectificativa</div>
-              <div class="paso-desc">Acceda a <strong>Modificación de una declaración ya presentada</strong> del ejercicio 2025. El borrador ya muestra los importes correctos. Compruebe que las casillas coinciden con su nuevo certificado y presente la rectificativa.</div>
-              <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Ir a corregir mi declaración de 2025</a>
-              <div class="paso-certificado">
-                <div class="paso-certificado-titulo">📄 Compruebe en su nuevo certificado</div>
-                <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Retribuciones dinerarias</span><span class="paso-certificado-valor">→ Casilla 003</span></div>
-                <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Retenciones practicadas</span><span class="paso-certificado-valor">→ Casilla 596</span></div>
-                <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Gastos deducibles (SS)</span><span class="paso-certificado-valor">→ Casilla 013</span></div>
-                <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Atrasos 0,5% de 2024</span><span class="paso-certificado-valor">No debe aparecer</span></div>
+              <div class="paso-titulo">Modifique su declaración de 2025 mediante autoliquidación rectificativa</div>
+              <div class="paso-desc">Acceda a <strong>Modificación de una declaración ya presentada</strong> del ejercicio 2025. El sistema cargará automáticamente los importes correctos gracias al modelo 190 corregido por la CARM y procesado por la AEAT. Verifique que las casillas 003, 596 y 013 coinciden con su nuevo certificado y presente la autoliquidación rectificativa.</div>
+              <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Ir a modificar mi declaración de 2025</a>
+              <div class="paso-rentaweb">
+                <div class="paso-rentaweb-titulo">Casillas a verificar en Renta Web</div>
+                <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 003</span><span class="casilla-desc">Retribuciones dinerarias — debe coincidir con el nuevo certificado</span></div>
+                <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 596</span><span class="casilla-desc">Retenciones — debe coincidir con el nuevo certificado</span></div>
+                <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 013</span><span class="casilla-desc">Cotizaciones SS — debe coincidir con el nuevo certificado</span></div>
               </div>
               <div class="nota nota-ok">✅ Este trámite no conlleva sanción ni recargo.</div>
+              <a class="paso-enlace verde" style="font-size:0.8rem;padding:0.35rem 0.8rem;margin-top:0.4rem;" href="https://sede.agenciatributaria.gob.es/Sede/ayuda/consultas-informaticas/renta-ayuda-tecnica/modificar-declaracion-presentada.html" target="_blank">📖 Guía AEAT: autoliquidación rectificativa</a>
             </div>
           </div>
 
@@ -639,44 +645,38 @@
         </div>
       </div>
       <div class="resultado-cuerpo">
-        <div class="resumen">No necesita hacer nada sobre 2024. Su declaración de 2025 tiene datos incorrectos y debe corregirla mediante autoliquidación rectificativa. El borrador ya muestra los importes correctos.</div>
+        <div class="resumen">No necesita hacer nada sobre 2024. Su declaración de 2025 tiene datos incorrectos y debe modificarla mediante autoliquidación rectificativa. El sistema cargará automáticamente los importes correctos.</div>
         <div class="pasos-titulo">Pasos a seguir</div>
         <div class="pasos">
 
           <div class="paso">
             <div class="paso-num">1</div>
             <div class="paso-body">
-              <div class="paso-titulo">Acceda a corregir su declaración de 2025</div>
-              <div class="paso-desc">Entre en la sede de la AEAT y acceda a <strong>Modificación de una declaración ya presentada</strong> del ejercicio 2025.</div>
-              <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Ir a corregir mi declaración de 2025</a>
+              <div class="paso-titulo">Acceda a modificar su declaración de 2025</div>
+              <div class="paso-desc">Entre en la sede de la AEAT y acceda a <strong>Modificación de una declaración ya presentada</strong> del ejercicio 2025. El sistema cargará automáticamente los importes correctos gracias al modelo 190 corregido por la CARM y procesado por la AEAT.</div>
+              <a class="paso-enlace" href="https://sede.agenciatributaria.gob.es/static_files/common/html/selector_acceso/SelectorAccesos.html?rep=S&ref=%2Fwlpl%2FDASR-CORE%2FAccesoDR2025RVlt&aut=CPRE" target="_blank">🔗 Ir a modificar mi declaración de 2025</a>
             </div>
           </div>
 
           <div class="paso">
             <div class="paso-num">2</div>
             <div class="paso-body">
-              <div class="paso-titulo">Compruebe las casillas y presente la rectificativa</div>
-              <div class="paso-desc">El borrador ya muestra los importes correctos. Compruebe que las casillas coinciden con su nuevo certificado y presente la autoliquidación rectificativa.</div>
+              <div class="paso-titulo">Verifique las casillas y presente la autoliquidación rectificativa</div>
+              <div class="paso-desc">Verifique que las casillas coinciden con su nuevo certificado y presente la autoliquidación rectificativa.</div>
               <div class="paso-rentaweb">
                 <div class="paso-rentaweb-titulo">Casillas a verificar en Renta Web</div>
                 <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 003</span><span class="casilla-desc">Retribuciones dinerarias — debe coincidir con el nuevo certificado</span></div>
                 <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 596</span><span class="casilla-desc">Retenciones — debe coincidir con el nuevo certificado</span></div>
                 <div class="paso-rentaweb-casilla"><span class="casilla-badge">Casilla 013</span><span class="casilla-desc">Cotizaciones SS — debe coincidir con el nuevo certificado</span></div>
               </div>
-              <div class="paso-certificado">
-                <div class="paso-certificado-titulo">📄 Compruebe en su nuevo certificado</div>
-                <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Retribuciones dinerarias</span><span class="paso-certificado-valor">→ Casilla 003</span></div>
-                <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Retenciones practicadas</span><span class="paso-certificado-valor">→ Casilla 596</span></div>
-                <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Gastos deducibles (SS)</span><span class="paso-certificado-valor">→ Casilla 013</span></div>
-                <div class="paso-certificado-fila"><span class="paso-certificado-concepto">Atrasos 0,5% de 2024</span><span class="paso-certificado-valor">No debe aparecer</span></div>
-              </div>
               <div class="nota nota-ok">✅ Este trámite no conlleva sanción ni recargo.</div>
               <div class="nota nota-info">ℹ️ No necesita realizar ningún trámite sobre el ejercicio 2024.</div>
+              <a class="paso-enlace verde" style="font-size:0.8rem;padding:0.35rem 0.8rem;margin-top:0.4rem;" href="https://sede.agenciatributaria.gob.es/Sede/ayuda/consultas-informaticas/renta-ayuda-tecnica/modificar-declaracion-presentada.html" target="_blank">📖 Guía AEAT: autoliquidación rectificativa</a>
             </div>
           </div>
 
         </div>
-        <div class="resultado-resumen"><strong>En resumen</strong> Un solo trámite: corregir la declaración de 2025 mediante autoliquidación rectificativa con el borrador actualizado. Sin sanción ni recargo.</div>
+        <div class="resultado-resumen"><strong>En resumen</strong> Un solo trámite: modificar la declaración de 2025 mediante autoliquidación rectificativa. El sistema ya carga los datos correctos automáticamente. Sin sanción ni recargo.</div>
       </div>
     </div>
     <button class="btn-volver" onclick="reiniciar()">← Volver al inicio</button>
